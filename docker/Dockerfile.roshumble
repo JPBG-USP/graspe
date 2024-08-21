@@ -1,0 +1,51 @@
+# Etapa 1: Base com Ubuntu e ROS Humble
+FROM osrf/ros:humble-desktop-full
+
+# Definindo o ambiente como não interativo
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Etapa 2: Configuração do fuso horário e instalação de ferramentas adicionais
+RUN ln -snf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && echo "America/Sao_Paulo" > /etc/timezone 
+RUN apt-get update && apt-get install -y \
+    sudo \
+    git \
+    vim \
+    gedit \
+    build-essential \
+    python3-colcon-common-extensions \
+    python3-vcstool \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
+
+# Etapa 3: Configuração de ambiente de usuário
+ARG USERNAME=host
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+# Cria um novo usuário não-root
+RUN groupadd --gid $USER_GID $USERNAME \
+    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    && echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME \
+    && mkdir /home/$USERNAME/.config && chown $USER_UID:$USER_GID /home/$USERNAME/.config
+
+# Alterna para o usuário não-root
+USER $USERNAME
+
+# Etapa 4: Instalação do Gazebo e RViz
+RUN sudo apt-get update && sudo apt-get install -y \
+    ros-humble-gazebo-ros-pkgs \
+    ros-humble-rviz2 \
+    && sudo rm -rf /var/lib/apt/lists/*
+
+
+# Adding config files
+COPY docker/config/bashrc /home/${USERNAME}/.bashrc
+
+# Settings for start state of the container
+USER $USERNAME
+WORKDIR /home/$USERNAME
+ENV HOME=/home/$USERNAME
+
+# Etapa 5: Comando padrão
+CMD ["/bin/bash"]
