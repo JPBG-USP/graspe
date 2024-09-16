@@ -1,0 +1,69 @@
+[0.000000] (-) TimerEvent: {}
+[0.000394] (graspe_description) JobQueued: {'identifier': 'graspe_description', 'dependencies': OrderedDict()}
+[0.000463] (graspe_description) JobStarted: {'identifier': 'graspe_description'}
+[0.010872] (graspe_description) JobProgress: {'identifier': 'graspe_description', 'progress': 'cmake'}
+[0.011524] (graspe_description) Command: {'cmd': ['/usr/bin/cmake', '/home/host/ros_ws/src/graspe_description', '-DCMAKE_INSTALL_PREFIX=/home/host/ros_ws/install/graspe_description'], 'cwd': '/home/host/ros_ws/build/graspe_description', 'env': OrderedDict([('HOSTNAME', 'jpbg'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/host'), ('OLDPWD', '/home/host'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/home/host/ros_ws/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/home/host/ros_ws/build/graspe_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.030688] (graspe_description) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.099486] (-) TimerEvent: {}
+[0.185454] (graspe_description) StdoutLine: {'line': b'-- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.199729] (-) TimerEvent: {}
+[0.219370] (graspe_description) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.222135] (graspe_description) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.229135] (graspe_description) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.240333] (graspe_description) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.256689] (graspe_description) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.295339] (graspe_description) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.296882] (graspe_description) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.299978] (-) TimerEvent: {}
+[0.400445] (-) TimerEvent: {}
+[0.481693] (graspe_description) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.500597] (-) TimerEvent: {}
+[0.566665] (graspe_description) StdoutLine: {'line': b'-- Found rclpy: 3.3.14 (/opt/ros/humble/share/rclpy/cmake)\n'}
+[0.566986] (graspe_description) StdoutLine: {'line': b'-- Found urdf: 2.6.0 (/opt/ros/humble/share/urdf/cmake)\n'}
+[0.595906] (graspe_description) StdoutLine: {'line': b'-- Found xacro: 2.0.8 (/opt/ros/humble/share/xacro/cmake)\n'}
+[0.596431] (graspe_description) StdoutLine: {'line': b'-- Found robot_state_publisher: 3.0.3 (/opt/ros/humble/share/robot_state_publisher/cmake)\n'}
+[0.600818] (-) TimerEvent: {}
+[0.614760] (graspe_description) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[0.616404] (graspe_description) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[0.701066] (-) TimerEvent: {}
+[0.801803] (-) TimerEvent: {}
+[0.881750] (graspe_description) StdoutLine: {'line': b'-- Found rviz2: 11.2.13 (/opt/ros/humble/share/rviz2/cmake)\n'}
+[0.902226] (-) TimerEvent: {}
+[0.923851] (graspe_description) StdoutLine: {'line': b'-- Found gazebo_ros_pkgs: 3.7.0 (/opt/ros/humble/share/gazebo_ros_pkgs/cmake)\n'}
+[0.935983] (graspe_description) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[1.002437] (-) TimerEvent: {}
+[1.102973] (-) TimerEvent: {}
+[1.125323] (graspe_description) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[1.126699] (graspe_description) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.127674] (graspe_description) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[1.130355] (graspe_description) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.133181] (graspe_description) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.140640] (graspe_description) StdoutLine: {'line': b'-- Generating done\n'}
+[1.143075] (graspe_description) StdoutLine: {'line': b'-- Build files have been written to: /home/host/ros_ws/build/graspe_description\n'}
+[1.157624] (graspe_description) CommandEnded: {'returncode': 0}
+[1.159085] (graspe_description) JobProgress: {'identifier': 'graspe_description', 'progress': 'build'}
+[1.162179] (graspe_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/host/ros_ws/build/graspe_description', '--', '-j12', '-l12'], 'cwd': '/home/host/ros_ws/build/graspe_description', 'env': OrderedDict([('HOSTNAME', 'jpbg'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/host'), ('OLDPWD', '/home/host'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/home/host/ros_ws/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/home/host/ros_ws/build/graspe_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[1.203212] (-) TimerEvent: {}
+[1.223919] (graspe_description) CommandEnded: {'returncode': 0}
+[1.257104] (graspe_description) JobProgress: {'identifier': 'graspe_description', 'progress': 'install'}
+[1.268876] (graspe_description) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/host/ros_ws/build/graspe_description'], 'cwd': '/home/host/ros_ws/build/graspe_description', 'env': OrderedDict([('HOSTNAME', 'jpbg'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/host'), ('OLDPWD', '/home/host'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/home/host/ros_ws/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/home/host/ros_ws/build/graspe_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[1.278522] (graspe_description) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[1.278812] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/ament_index/resource_index/package_run_dependencies/graspe_description\n'}
+[1.279169] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/ament_index/resource_index/parent_prefix_path/graspe_description\n'}
+[1.279390] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/graspe_description/environment/ament_prefix_path.sh\n'}
+[1.279592] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/graspe_description/environment/ament_prefix_path.dsv\n'}
+[1.279811] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/graspe_description/environment/path.sh\n'}
+[1.280002] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/graspe_description/environment/path.dsv\n'}
+[1.280178] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/graspe_description/local_setup.bash\n'}
+[1.280369] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/graspe_description/local_setup.sh\n'}
+[1.280579] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/graspe_description/local_setup.zsh\n'}
+[1.280724] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/graspe_description/local_setup.dsv\n'}
+[1.280864] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/graspe_description/package.dsv\n'}
+[1.281004] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/ament_index/resource_index/packages/graspe_description\n'}
+[1.281149] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/graspe_description/cmake/graspe_descriptionConfig.cmake\n'}
+[1.281301] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/graspe_description/cmake/graspe_descriptionConfig-version.cmake\n'}
+[1.281460] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/graspe_description/package.xml\n'}
+[1.282975] (graspe_description) CommandEnded: {'returncode': 0}
+[1.303566] (-) TimerEvent: {}
+[1.384669] (graspe_description) JobEnded: {'identifier': 'graspe_description', 'rc': 0}
+[1.385564] (-) EventReactorShutdown: {}

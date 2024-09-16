@@ -1,0 +1,49 @@
+[0.000000] (-) TimerEvent: {}
+[0.000429] (graspe_description) JobQueued: {'identifier': 'graspe_description', 'dependencies': OrderedDict()}
+[0.000542] (graspe_description) JobStarted: {'identifier': 'graspe_description'}
+[0.015022] (graspe_description) JobProgress: {'identifier': 'graspe_description', 'progress': 'cmake'}
+[0.015487] (graspe_description) Command: {'cmd': ['/usr/bin/cmake', '/home/host/ros_ws/src/graspe_description', '-DCMAKE_INSTALL_PREFIX=/home/host/ros_ws/install/graspe_description'], 'cwd': '/home/host/ros_ws/build/graspe_description', 'env': OrderedDict([('HOSTNAME', 'jpbg'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/host'), ('OLDPWD', '/home/host/ros_ws/src'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/home/host/ros_ws/build/graspe_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.098361] (-) TimerEvent: {}
+[0.135672] (graspe_description) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.198600] (-) TimerEvent: {}
+[0.225823] (graspe_description) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.235133] (graspe_description) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.298764] (-) TimerEvent: {}
+[0.340768] (graspe_description) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.352426] (graspe_description) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.352944] (graspe_description) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.353399] (graspe_description) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.358662] (graspe_description) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.399013] (-) TimerEvent: {}
+[0.481343] (graspe_description) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.497603] (graspe_description) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.498319] (graspe_description) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.499111] (graspe_description) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.499383] (-) TimerEvent: {}
+[0.507577] (graspe_description) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.599481] (-) TimerEvent: {}
+[0.699966] (-) TimerEvent: {}
+[0.707245] (graspe_description) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.800207] (-) TimerEvent: {}
+[0.838786] (graspe_description) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:10 (find_package):\n'}
+[0.839135] (graspe_description) StderrLine: {'line': b'  By not providing "Findrospy.cmake" in CMAKE_MODULE_PATH this project has\n'}
+[0.839297] (graspe_description) StderrLine: {'line': b'  asked CMake to find a package configuration file provided by "rospy", but\n'}
+[0.839463] (graspe_description) StderrLine: {'line': b'  CMake did not find one.\n'}
+[0.839617] (graspe_description) StderrLine: {'line': b'\n'}
+[0.839764] (graspe_description) StderrLine: {'line': b'  Could not find a package configuration file provided by "rospy" with any of\n'}
+[0.839908] (graspe_description) StderrLine: {'line': b'  the following names:\n'}
+[0.840051] (graspe_description) StderrLine: {'line': b'\n'}
+[0.840198] (graspe_description) StderrLine: {'line': b'    rospyConfig.cmake\n'}
+[0.840380] (graspe_description) StderrLine: {'line': b'    rospy-config.cmake\n'}
+[0.840552] (graspe_description) StderrLine: {'line': b'\n'}
+[0.840702] (graspe_description) StderrLine: {'line': b'  Add the installation prefix of "rospy" to CMAKE_PREFIX_PATH or set\n'}
+[0.840853] (graspe_description) StderrLine: {'line': b'  "rospy_DIR" to a directory containing one of the above files.  If "rospy"\n'}
+[0.841000] (graspe_description) StderrLine: {'line': b'  provides a separate development package or SDK, be sure it has been\n'}
+[0.841146] (graspe_description) StderrLine: {'line': b'  installed.\n'}
+[0.841291] (graspe_description) StderrLine: {'line': b'\n'}
+[0.841474] (graspe_description) StderrLine: {'line': b'\x1b[0m\n'}
+[0.841640] (graspe_description) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.841820] (graspe_description) StdoutLine: {'line': b'See also "/home/host/ros_ws/build/graspe_description/CMakeFiles/CMakeOutput.log".\n'}
+[0.844199] (graspe_description) CommandEnded: {'returncode': 1}
+[0.879156] (graspe_description) JobEnded: {'identifier': 'graspe_description', 'rc': 1}
+[0.890276] (-) EventReactorShutdown: {}

@@ -1,0 +1,37 @@
+[0.012s] Invoking command in '/home/host/ros_ws/build/graspe_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/host/ros_ws/src/graspe_description -DCMAKE_INSTALL_PREFIX=/home/host/ros_ws/install/graspe_description
+[0.031s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.182s] -- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)
+[0.216s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.219s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.227s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.241s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.257s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.294s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.296s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.464s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.598s] -- Found rclpy: 3.3.14 (/opt/ros/humble/share/rclpy/cmake)
+[0.598s] -- Found urdf: 2.6.0 (/opt/ros/humble/share/urdf/cmake)
+[0.664s] -- Found xacro: 2.0.8 (/opt/ros/humble/share/xacro/cmake)
+[0.664s] -- Found robot_state_publisher: 3.0.3 (/opt/ros/humble/share/robot_state_publisher/cmake)
+[0.696s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[0.699s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[0.854s] [31mCMake Error at CMakeLists.txt:15 (find_package):
+[0.854s]   By not providing "Findjoint_state_publisher.cmake" in CMAKE_MODULE_PATH
+[0.855s]   this project has asked CMake to find a package configuration file provided
+[0.855s]   by "joint_state_publisher", but CMake did not find one.
+[0.855s] 
+[0.855s]   Could not find a package configuration file provided by
+[0.855s]   "joint_state_publisher" with any of the following names:
+[0.855s] 
+[0.856s]     joint_state_publisherConfig.cmake
+[0.856s]     joint_state_publisher-config.cmake
+[0.856s] 
+[0.856s]   Add the installation prefix of "joint_state_publisher" to CMAKE_PREFIX_PATH
+[0.856s]   or set "joint_state_publisher_DIR" to a directory containing one of the
+[0.856s]   above files.  If "joint_state_publisher" provides a separate development
+[0.856s]   package or SDK, be sure it has been installed.
+[0.856s] 
+[0.857s] [0m
+[0.857s] -- Configuring incomplete, errors occurred!
+[0.857s] See also "/home/host/ros_ws/build/graspe_description/CMakeFiles/CMakeOutput.log".
+[0.864s] Invoked command in '/home/host/ros_ws/build/graspe_description' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/host/ros_ws/src/graspe_description -DCMAKE_INSTALL_PREFIX=/home/host/ros_ws/install/graspe_description

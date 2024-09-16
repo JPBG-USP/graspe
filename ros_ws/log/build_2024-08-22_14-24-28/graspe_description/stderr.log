@@ -1,0 +1,17 @@
+[31mCMake Error at CMakeLists.txt:15 (find_package):
+  By not providing "Findjoint_state_publisher.cmake" in CMAKE_MODULE_PATH
+  this project has asked CMake to find a package configuration file provided
+  by "joint_state_publisher", but CMake did not find one.
+
+  Could not find a package configuration file provided by
+  "joint_state_publisher" with any of the following names:
+
+    joint_state_publisherConfig.cmake
+    joint_state_publisher-config.cmake
+
+  Add the installation prefix of "joint_state_publisher" to CMAKE_PREFIX_PATH
+  or set "joint_state_publisher_DIR" to a directory containing one of the
+  above files.  If "joint_state_publisher" provides a separate development
+  package or SDK, be sure it has been installed.
+
+[0m

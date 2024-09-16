@@ -1,0 +1,52 @@
+[0.000000] (-) TimerEvent: {}
+[0.000179] (graspe_description) JobQueued: {'identifier': 'graspe_description', 'dependencies': OrderedDict()}
+[0.000775] (graspe_description) JobStarted: {'identifier': 'graspe_description'}
+[0.010854] (graspe_description) JobProgress: {'identifier': 'graspe_description', 'progress': 'cmake'}
+[0.011822] (graspe_description) Command: {'cmd': ['/usr/bin/cmake', '/home/host/ros_ws/src/graspe_description', '-DCMAKE_INSTALL_PREFIX=/home/host/ros_ws/install/graspe_description'], 'cwd': '/home/host/ros_ws/build/graspe_description', 'env': OrderedDict([('HOSTNAME', 'jpbg'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/host'), ('OLDPWD', '/home/host'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/home/host/ros_ws/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/home/host/ros_ws/build/graspe_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.031352] (graspe_description) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.099651] (-) TimerEvent: {}
+[0.183141] (graspe_description) StdoutLine: {'line': b'-- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.199744] (-) TimerEvent: {}
+[0.216972] (graspe_description) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.219818] (graspe_description) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.227342] (graspe_description) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.241739] (graspe_description) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.257765] (graspe_description) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.294661] (graspe_description) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.296450] (graspe_description) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.299828] (-) TimerEvent: {}
+[0.400223] (-) TimerEvent: {}
+[0.464566] (graspe_description) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.500391] (-) TimerEvent: {}
+[0.598205] (graspe_description) StdoutLine: {'line': b'-- Found rclpy: 3.3.14 (/opt/ros/humble/share/rclpy/cmake)\n'}
+[0.598659] (graspe_description) StdoutLine: {'line': b'-- Found urdf: 2.6.0 (/opt/ros/humble/share/urdf/cmake)\n'}
+[0.600497] (-) TimerEvent: {}
+[0.664167] (graspe_description) StdoutLine: {'line': b'-- Found xacro: 2.0.8 (/opt/ros/humble/share/xacro/cmake)\n'}
+[0.665020] (graspe_description) StdoutLine: {'line': b'-- Found robot_state_publisher: 3.0.3 (/opt/ros/humble/share/robot_state_publisher/cmake)\n'}
+[0.696907] (graspe_description) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[0.699763] (graspe_description) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[0.700586] (-) TimerEvent: {}
+[0.801085] (-) TimerEvent: {}
+[0.854799] (graspe_description) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:15 (find_package):\n'}
+[0.855165] (graspe_description) StderrLine: {'line': b'  By not providing "Findjoint_state_publisher.cmake" in CMAKE_MODULE_PATH\n'}
+[0.855348] (graspe_description) StderrLine: {'line': b'  this project has asked CMake to find a package configuration file provided\n'}
+[0.855530] (graspe_description) StderrLine: {'line': b'  by "joint_state_publisher", but CMake did not find one.\n'}
+[0.855700] (graspe_description) StderrLine: {'line': b'\n'}
+[0.855860] (graspe_description) StderrLine: {'line': b'  Could not find a package configuration file provided by\n'}
+[0.856018] (graspe_description) StderrLine: {'line': b'  "joint_state_publisher" with any of the following names:\n'}
+[0.856177] (graspe_description) StderrLine: {'line': b'\n'}
+[0.856334] (graspe_description) StderrLine: {'line': b'    joint_state_publisherConfig.cmake\n'}
+[0.856507] (graspe_description) StderrLine: {'line': b'    joint_state_publisher-config.cmake\n'}
+[0.856681] (graspe_description) StderrLine: {'line': b'\n'}
+[0.856825] (graspe_description) StderrLine: {'line': b'  Add the installation prefix of "joint_state_publisher" to CMAKE_PREFIX_PATH\n'}
+[0.856943] (graspe_description) StderrLine: {'line': b'  or set "joint_state_publisher_DIR" to a directory containing one of the\n'}
+[0.857062] (graspe_description) StderrLine: {'line': b'  above files.  If "joint_state_publisher" provides a separate development\n'}
+[0.857179] (graspe_description) StderrLine: {'line': b'  package or SDK, be sure it has been installed.\n'}
+[0.857296] (graspe_description) StderrLine: {'line': b'\n'}
+[0.857411] (graspe_description) StderrLine: {'line': b'\x1b[0m\n'}
+[0.857547] (graspe_description) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.857679] (graspe_description) StdoutLine: {'line': b'See also "/home/host/ros_ws/build/graspe_description/CMakeFiles/CMakeOutput.log".\n'}
+[0.864663] (graspe_description) CommandEnded: {'returncode': 1}
+[0.897084] (graspe_description) JobEnded: {'identifier': 'graspe_description', 'rc': 1}
+[0.901287] (-) TimerEvent: {}
+[0.907955] (-) EventReactorShutdown: {}

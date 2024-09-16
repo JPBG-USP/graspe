@@ -1,0 +1,25 @@
+[0.316s] Invoking command in '/home/host/ros_ws/build/graspe_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/host/ros_ws/build/graspe_description -- -j12 -l12
+[1.183s] Invoked command in '/home/host/ros_ws/build/graspe_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/host/ros_ws/build/graspe_description -- -j12 -l12
+[1.211s] Invoking command in '/home/host/ros_ws/build/graspe_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/host/ros_ws/build/graspe_description
+[1.220s] -- Install configuration: ""
+[1.220s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/launch
+[1.220s] -- Installing: /home/host/ros_ws/install/graspe_description/share/graspe_description/launch/robot_display.launch.py
+[1.220s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/urdf
+[1.221s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/urdf/robot.urdf
+[1.221s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/rviz
+[1.221s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/ament_index/resource_index/package_run_dependencies/graspe_description
+[1.221s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/ament_index/resource_index/parent_prefix_path/graspe_description
+[1.221s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/environment/ament_prefix_path.sh
+[1.221s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/environment/ament_prefix_path.dsv
+[1.221s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/environment/path.sh
+[1.222s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/environment/path.dsv
+[1.222s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/local_setup.bash
+[1.222s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/local_setup.sh
+[1.222s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/local_setup.zsh
+[1.222s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/local_setup.dsv
+[1.222s] -- Installing: /home/host/ros_ws/install/graspe_description/share/graspe_description/package.dsv
+[1.232s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/ament_index/resource_index/packages/graspe_description
+[1.232s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/cmake/graspe_descriptionConfig.cmake
+[1.232s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/cmake/graspe_descriptionConfig-version.cmake
+[1.232s] -- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/package.xml
+[1.235s] Invoked command in '/home/host/ros_ws/build/graspe_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/host/ros_ws/build/graspe_description
