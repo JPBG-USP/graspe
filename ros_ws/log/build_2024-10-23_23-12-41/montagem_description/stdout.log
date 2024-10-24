@@ -1,0 +1,8 @@
+running egg_info
+creating ../../build/montagem_description/Montagem_description.egg-info
+writing ../../build/montagem_description/Montagem_description.egg-info/PKG-INFO
+writing dependency_links to ../../build/montagem_description/Montagem_description.egg-info/dependency_links.txt
+writing entry points to ../../build/montagem_description/Montagem_description.egg-info/entry_points.txt
+writing requirements to ../../build/montagem_description/Montagem_description.egg-info/requires.txt
+writing top-level names to ../../build/montagem_description/Montagem_description.egg-info/top_level.txt
+writing manifest file '../../build/montagem_description/Montagem_description.egg-info/SOURCES.txt'

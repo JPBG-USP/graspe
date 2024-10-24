@@ -1,0 +1,46 @@
+/usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+  warnings.warn(
+running egg_info
+creating ../../build/montagem_description/montagem_description.egg-info
+writing ../../build/montagem_description/montagem_description.egg-info/PKG-INFO
+writing dependency_links to ../../build/montagem_description/montagem_description.egg-info/dependency_links.txt
+writing entry points to ../../build/montagem_description/montagem_description.egg-info/entry_points.txt
+writing requirements to ../../build/montagem_description/montagem_description.egg-info/requires.txt
+writing top-level names to ../../build/montagem_description/montagem_description.egg-info/top_level.txt
+writing manifest file '../../build/montagem_description/montagem_description.egg-info/SOURCES.txt'
+reading manifest file '../../build/montagem_description/montagem_description.egg-info/SOURCES.txt'
+writing manifest file '../../build/montagem_description/montagem_description.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/host/ros_ws/build/montagem_description/build
+creating /home/host/ros_ws/build/montagem_description/build/lib
+creating /home/host/ros_ws/build/montagem_description/build/lib/montagem_description
+copying montagem_description/__init__.py -> /home/host/ros_ws/build/montagem_description/build/lib/montagem_description
+running install
+running install_lib
+creating /home/host/ros_ws/install/montagem_description/lib/python3.10/site-packages/montagem_description
+copying /home/host/ros_ws/build/montagem_description/build/lib/montagem_description/__init__.py -> /home/host/ros_ws/install/montagem_description/lib/python3.10/site-packages/montagem_description
+byte-compiling /home/host/ros_ws/install/montagem_description/lib/python3.10/site-packages/montagem_description/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/host/ros_ws/install/montagem_description/share/montagem_description/launch
+copying launch/display.launch.py -> /home/host/ros_ws/install/montagem_description/share/montagem_description/launch
+copying launch/gazebo.launch.py -> /home/host/ros_ws/install/montagem_description/share/montagem_description/launch
+creating /home/host/ros_ws/install/montagem_description/share/montagem_description/urdf
+copying urdf/montagem.xacro -> /home/host/ros_ws/install/montagem_description/share/montagem_description/urdf
+copying urdf/montagem.gazebo -> /home/host/ros_ws/install/montagem_description/share/montagem_description/urdf
+copying urdf/montagem.trans -> /home/host/ros_ws/install/montagem_description/share/montagem_description/urdf
+copying urdf/materials.xacro -> /home/host/ros_ws/install/montagem_description/share/montagem_description/urdf
+creating /home/host/ros_ws/install/montagem_description/share/montagem_description/meshes
+copying meshes/rotacionalpequeno_1.stl -> /home/host/ros_ws/install/montagem_description/share/montagem_description/meshes
+copying meshes/base_link.stl -> /home/host/ros_ws/install/montagem_description/share/montagem_description/meshes
+copying meshes/rotacionalgrande_1.stl -> /home/host/ros_ws/install/montagem_description/share/montagem_description/meshes
+copying meshes/linkgrande_1.stl -> /home/host/ros_ws/install/montagem_description/share/montagem_description/meshes
+copying meshes/prismatica_1.stl -> /home/host/ros_ws/install/montagem_description/share/montagem_description/meshes
+copying meshes/linkpequeno_1.stl -> /home/host/ros_ws/install/montagem_description/share/montagem_description/meshes
+copying meshes/endfactor_1.stl -> /home/host/ros_ws/install/montagem_description/share/montagem_description/meshes
+creating /home/host/ros_ws/install/montagem_description/share/montagem_description/config
+copying config/display.rviz -> /home/host/ros_ws/install/montagem_description/share/montagem_description/config
+running install_egg_info
+Copying ../../build/montagem_description/montagem_description.egg-info to /home/host/ros_ws/install/montagem_description/lib/python3.10/site-packages/montagem_description-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/host/ros_ws/build/montagem_description/install.log'

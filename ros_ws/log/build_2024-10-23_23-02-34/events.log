@@ -1,0 +1,52 @@
+[0.000000] (-) TimerEvent: {}
+[0.000544] (Montagem_description) JobQueued: {'identifier': 'Montagem_description', 'dependencies': OrderedDict()}
+[0.000586] (graspe_description) JobQueued: {'identifier': 'graspe_description', 'dependencies': OrderedDict()}
+[0.000624] (Montagem_description) JobStarted: {'identifier': 'Montagem_description'}
+[0.004926] (graspe_description) JobStarted: {'identifier': 'graspe_description'}
+[0.099475] (-) TimerEvent: {}
+[0.136278] (graspe_description) JobProgress: {'identifier': 'graspe_description', 'progress': 'cmake'}
+[0.137194] (graspe_description) JobProgress: {'identifier': 'graspe_description', 'progress': 'build'}
+[0.137235] (graspe_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/host/ros_ws/build/graspe_description', '--', '-j12', '-l12'], 'cwd': '/home/host/ros_ws/build/graspe_description', 'env': OrderedDict([('HOSTNAME', 'jpbg'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/host'), ('OLDPWD', '/home/host'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/home/host/ros_ws/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/home/host/ros_ws/install/graspe_description:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/home/host/ros_ws/build/graspe_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/host/ros_ws/install/graspe_description:/opt/ros/humble')]), 'shell': False}
+[0.173786] (graspe_description) CommandEnded: {'returncode': 0}
+[0.192008] (graspe_description) JobProgress: {'identifier': 'graspe_description', 'progress': 'install'}
+[0.198424] (graspe_description) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/host/ros_ws/build/graspe_description'], 'cwd': '/home/host/ros_ws/build/graspe_description', 'env': OrderedDict([('HOSTNAME', 'jpbg'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/host'), ('OLDPWD', '/home/host'), ('ROS_PYTHON_VERSION', '3'), ('COLCON_PREFIX_PATH', '/home/host/ros_ws/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('AMENT_PREFIX_PATH', '/home/host/ros_ws/install/graspe_description:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/home/host/ros_ws/build/graspe_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/host/ros_ws/install/graspe_description:/opt/ros/humble')]), 'shell': False}
+[0.199559] (-) TimerEvent: {}
+[0.205139] (graspe_description) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.205315] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/launch\n'}
+[0.205384] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/launch/robot_display.launch.py\n'}
+[0.205440] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/urdf\n'}
+[0.205493] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/urdf/robot.urdf\n'}
+[0.205545] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/rviz\n'}
+[0.205632] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/rviz/display_config.rviz\n'}
+[0.205683] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/ament_index/resource_index/package_run_dependencies/graspe_description\n'}
+[0.205729] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/ament_index/resource_index/parent_prefix_path/graspe_description\n'}
+[0.205773] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/environment/ament_prefix_path.sh\n'}
+[0.205821] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/environment/ament_prefix_path.dsv\n'}
+[0.205868] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/environment/path.sh\n'}
+[0.205917] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/environment/path.dsv\n'}
+[0.205969] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/local_setup.bash\n'}
+[0.206020] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/local_setup.sh\n'}
+[0.206093] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/local_setup.zsh\n'}
+[0.206174] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/local_setup.dsv\n'}
+[0.206225] (graspe_description) StdoutLine: {'line': b'-- Installing: /home/host/ros_ws/install/graspe_description/share/graspe_description/package.dsv\n'}
+[0.206270] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/ament_index/resource_index/packages/graspe_description\n'}
+[0.206311] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/cmake/graspe_descriptionConfig.cmake\n'}
+[0.206350] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/cmake/graspe_descriptionConfig-version.cmake\n'}
+[0.206393] (graspe_description) StdoutLine: {'line': b'-- Up-to-date: /home/host/ros_ws/install/graspe_description/share/graspe_description/package.xml\n'}
+[0.207294] (graspe_description) CommandEnded: {'returncode': 0}
+[0.235559] (graspe_description) JobEnded: {'identifier': 'graspe_description', 'rc': 0}
+[0.299686] (-) TimerEvent: {}
+[0.318757] (Montagem_description) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/Montagem_description', 'build', '--build-base', '/home/host/ros_ws/build/Montagem_description/build', 'install', '--record', '/home/host/ros_ws/build/Montagem_description/install.log', '--install-scripts', '$base/lib/Montagem_description', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/host/ros_ws/src/montagem_description', 'env': {'HOSTNAME': 'jpbg', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/host', 'OLDPWD': '/home/host', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/home/host/ros_ws/install', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': ':0', 'LANG': 'C.UTF-8', 'AMENT_PREFIX_PATH': '/home/host/ros_ws/install/graspe_description:/opt/ros/humble', 'DEBIAN_FRONTEND': 'noninteractive', 'PWD': '/home/host/ros_ws/build/Montagem_description', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/home/host/ros_ws/build/Montagem_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/host/ros_ws/install/Montagem_description/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/host/ros_ws/install/graspe_description'}, 'shell': False}
+[0.399902] (-) TimerEvent: {}
+[0.428262] (Montagem_description) StderrLine: {'line': b"/usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead\n"}
+[0.428445] (Montagem_description) StderrLine: {'line': b'  warnings.warn(\n'}
+[0.433605] (Montagem_description) StdoutLine: {'line': b'running egg_info\n'}
+[0.433892] (Montagem_description) StdoutLine: {'line': b'writing ../../build/Montagem_description/Montagem_description.egg-info/PKG-INFO\n'}
+[0.434103] (Montagem_description) StdoutLine: {'line': b'writing dependency_links to ../../build/Montagem_description/Montagem_description.egg-info/dependency_links.txt\n'}
+[0.434198] (Montagem_description) StdoutLine: {'line': b'writing entry points to ../../build/Montagem_description/Montagem_description.egg-info/entry_points.txt\n'}
+[0.434339] (Montagem_description) StdoutLine: {'line': b'writing requirements to ../../build/Montagem_description/Montagem_description.egg-info/requires.txt\n'}
+[0.434427] (Montagem_description) StdoutLine: {'line': b'writing top-level names to ../../build/Montagem_description/Montagem_description.egg-info/top_level.txt\n'}
+[0.434935] (Montagem_description) StderrLine: {'line': b"error: package directory 'Montagem_description' does not exist\n"}
+[0.445163] (Montagem_description) CommandEnded: {'returncode': 1}
+[0.445449] (Montagem_description) JobEnded: {'identifier': 'Montagem_description', 'rc': 1}
+[0.455695] (-) EventReactorShutdown: {}

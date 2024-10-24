@@ -1,0 +1,53 @@
+[1.224s] Invoking command in '/home/host/ros_ws/src/Montagem_description': PYTHONPATH=/home/host/ros_ws/build/Montagem_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/host/ros_ws/install/Montagem_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/Montagem_description build --build-base /home/host/ros_ws/build/Montagem_description/build install --record /home/host/ros_ws/build/Montagem_description/install.log --install-scripts $base/lib/Montagem_description --single-version-externally-managed install_data
+[1.331s] /usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[1.331s]   warnings.warn(
+[1.336s] running egg_info
+[1.336s] creating ../../build/Montagem_description/Montagem_description.egg-info
+[1.336s] writing ../../build/Montagem_description/Montagem_description.egg-info/PKG-INFO
+[1.336s] writing dependency_links to ../../build/Montagem_description/Montagem_description.egg-info/dependency_links.txt
+[1.337s] writing entry points to ../../build/Montagem_description/Montagem_description.egg-info/entry_points.txt
+[1.337s] writing requirements to ../../build/Montagem_description/Montagem_description.egg-info/requires.txt
+[1.337s] writing top-level names to ../../build/Montagem_description/Montagem_description.egg-info/top_level.txt
+[1.337s] writing manifest file '../../build/Montagem_description/Montagem_description.egg-info/SOURCES.txt'
+[1.338s] reading manifest file '../../build/Montagem_description/Montagem_description.egg-info/SOURCES.txt'
+[1.338s] writing manifest file '../../build/Montagem_description/Montagem_description.egg-info/SOURCES.txt'
+[1.339s] running build
+[1.339s] running build_py
+[1.339s] creating /home/host/ros_ws/build/Montagem_description/build
+[1.339s] creating /home/host/ros_ws/build/Montagem_description/build/lib
+[1.339s] creating /home/host/ros_ws/build/Montagem_description/build/lib/Montagem_description
+[1.339s] copying Montagem_description/__init__.py -> /home/host/ros_ws/build/Montagem_description/build/lib/Montagem_description
+[1.339s] running install
+[1.339s] running install_lib
+[1.339s] creating /home/host/ros_ws/install/Montagem_description/lib/python3.10/site-packages/Montagem_description
+[1.340s] copying /home/host/ros_ws/build/Montagem_description/build/lib/Montagem_description/__init__.py -> /home/host/ros_ws/install/Montagem_description/lib/python3.10/site-packages/Montagem_description
+[1.340s] byte-compiling /home/host/ros_ws/install/Montagem_description/lib/python3.10/site-packages/Montagem_description/__init__.py to __init__.cpython-310.pyc
+[1.340s] running install_data
+[1.340s] creating /home/host/ros_ws/install/Montagem_description/share/ament_index
+[1.340s] creating /home/host/ros_ws/install/Montagem_description/share/ament_index/resource_index
+[1.340s] creating /home/host/ros_ws/install/Montagem_description/share/ament_index/resource_index/packages
+[1.341s] copying resource/Montagem_description -> /home/host/ros_ws/install/Montagem_description/share/ament_index/resource_index/packages
+[1.341s] copying package.xml -> /home/host/ros_ws/install/Montagem_description/share/Montagem_description
+[1.341s] creating /home/host/ros_ws/install/Montagem_description/share/Montagem_description/launch
+[1.341s] copying launch/display.launch.py -> /home/host/ros_ws/install/Montagem_description/share/Montagem_description/launch
+[1.341s] copying launch/gazebo.launch.py -> /home/host/ros_ws/install/Montagem_description/share/Montagem_description/launch
+[1.341s] creating /home/host/ros_ws/install/Montagem_description/share/Montagem_description/urdf
+[1.341s] copying urdf/Montagem.trans -> /home/host/ros_ws/install/Montagem_description/share/Montagem_description/urdf
+[1.341s] copying urdf/Montagem.xacro -> /home/host/ros_ws/install/Montagem_description/share/Montagem_description/urdf
+[1.341s] copying urdf/Montagem.gazebo -> /home/host/ros_ws/install/Montagem_description/share/Montagem_description/urdf
+[1.341s] copying urdf/materials.xacro -> /home/host/ros_ws/install/Montagem_description/share/Montagem_description/urdf
+[1.341s] creating /home/host/ros_ws/install/Montagem_description/share/Montagem_description/meshes
+[1.341s] copying meshes/rotacionalpequeno_1.stl -> /home/host/ros_ws/install/Montagem_description/share/Montagem_description/meshes
+[1.342s] copying meshes/base_link.stl -> /home/host/ros_ws/install/Montagem_description/share/Montagem_description/meshes
+[1.342s] copying meshes/rotacionalgrande_1.stl -> /home/host/ros_ws/install/Montagem_description/share/Montagem_description/meshes
+[1.342s] copying meshes/linkgrande_1.stl -> /home/host/ros_ws/install/Montagem_description/share/Montagem_description/meshes
+[1.342s] copying meshes/prismatica_1.stl -> /home/host/ros_ws/install/Montagem_description/share/Montagem_description/meshes
+[1.342s] copying meshes/linkpequeno_1.stl -> /home/host/ros_ws/install/Montagem_description/share/Montagem_description/meshes
+[1.342s] copying meshes/endfactor_1.stl -> /home/host/ros_ws/install/Montagem_description/share/Montagem_description/meshes
+[1.342s] creating /home/host/ros_ws/install/Montagem_description/share/Montagem_description/config
+[1.342s] copying config/display.rviz -> /home/host/ros_ws/install/Montagem_description/share/Montagem_description/config
+[1.342s] running install_egg_info
+[1.342s] Copying ../../build/Montagem_description/Montagem_description.egg-info to /home/host/ros_ws/install/Montagem_description/lib/python3.10/site-packages/Montagem_description-0.0.0-py3.10.egg-info
+[1.342s] running install_scripts
+[1.355s] writing list of installed files to '/home/host/ros_ws/build/Montagem_description/install.log'
+[1.368s] Invoked command in '/home/host/ros_ws/src/Montagem_description' returned '0': PYTHONPATH=/home/host/ros_ws/build/Montagem_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/host/ros_ws/install/Montagem_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/Montagem_description build --build-base /home/host/ros_ws/build/Montagem_description/build install --record /home/host/ros_ws/build/Montagem_description/install.log --install-scripts $base/lib/Montagem_description --single-version-externally-managed install_data

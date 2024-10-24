@@ -1,0 +1,53 @@
+[0.474s] Invoking command in '/home/host/ros_ws/src/graspeurdf_description': PYTHONPATH=/home/host/ros_ws/build/graspeurdf_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/host/ros_ws/install/graspeurdf_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/graspeurdf_description build --build-base /home/host/ros_ws/build/graspeurdf_description/build install --record /home/host/ros_ws/build/graspeurdf_description/install.log --install-scripts $base/lib/graspeurdf_description --single-version-externally-managed install_data
+[0.601s] /usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[0.601s]   warnings.warn(
+[0.606s] running egg_info
+[0.607s] creating ../../build/graspeurdf_description/graspeurdf_description.egg-info
+[0.607s] writing ../../build/graspeurdf_description/graspeurdf_description.egg-info/PKG-INFO
+[0.607s] writing dependency_links to ../../build/graspeurdf_description/graspeurdf_description.egg-info/dependency_links.txt
+[0.607s] writing entry points to ../../build/graspeurdf_description/graspeurdf_description.egg-info/entry_points.txt
+[0.607s] writing requirements to ../../build/graspeurdf_description/graspeurdf_description.egg-info/requires.txt
+[0.607s] writing top-level names to ../../build/graspeurdf_description/graspeurdf_description.egg-info/top_level.txt
+[0.607s] writing manifest file '../../build/graspeurdf_description/graspeurdf_description.egg-info/SOURCES.txt'
+[0.608s] reading manifest file '../../build/graspeurdf_description/graspeurdf_description.egg-info/SOURCES.txt'
+[0.608s] writing manifest file '../../build/graspeurdf_description/graspeurdf_description.egg-info/SOURCES.txt'
+[0.609s] running build
+[0.609s] running build_py
+[0.609s] creating /home/host/ros_ws/build/graspeurdf_description/build
+[0.609s] creating /home/host/ros_ws/build/graspeurdf_description/build/lib
+[0.609s] creating /home/host/ros_ws/build/graspeurdf_description/build/lib/graspeurdf_description
+[0.609s] copying graspeurdf_description/__init__.py -> /home/host/ros_ws/build/graspeurdf_description/build/lib/graspeurdf_description
+[0.610s] running install
+[0.610s] running install_lib
+[0.610s] creating /home/host/ros_ws/install/graspeurdf_description/lib/python3.10/site-packages/graspeurdf_description
+[0.610s] copying /home/host/ros_ws/build/graspeurdf_description/build/lib/graspeurdf_description/__init__.py -> /home/host/ros_ws/install/graspeurdf_description/lib/python3.10/site-packages/graspeurdf_description
+[0.610s] byte-compiling /home/host/ros_ws/install/graspeurdf_description/lib/python3.10/site-packages/graspeurdf_description/__init__.py to __init__.cpython-310.pyc
+[0.610s] running install_data
+[0.610s] creating /home/host/ros_ws/install/graspeurdf_description/share/ament_index
+[0.610s] creating /home/host/ros_ws/install/graspeurdf_description/share/ament_index/resource_index
+[0.611s] creating /home/host/ros_ws/install/graspeurdf_description/share/ament_index/resource_index/packages
+[0.611s] copying resource/graspeurdf_description -> /home/host/ros_ws/install/graspeurdf_description/share/ament_index/resource_index/packages
+[0.611s] copying package.xml -> /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description
+[0.611s] creating /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/launch
+[0.611s] copying launch/display.launch.py -> /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/launch
+[0.611s] copying launch/gazebo.launch.py -> /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/launch
+[0.625s] creating /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/urdf
+[0.626s] copying urdf/graspeurdf.xacro -> /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/urdf
+[0.626s] copying urdf/graspeurdf.gazebo -> /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/urdf
+[0.626s] copying urdf/graspeurdf.trans -> /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/urdf
+[0.626s] copying urdf/materials.xacro -> /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/urdf
+[0.626s] creating /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/meshes
+[0.626s] copying meshes/rotacionalpequeno_1.stl -> /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/meshes
+[0.626s] copying meshes/base_link.stl -> /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/meshes
+[0.626s] copying meshes/rotacionalgrande_1.stl -> /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/meshes
+[0.626s] copying meshes/linkgrande_1.stl -> /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/meshes
+[0.626s] copying meshes/prismatica_1.stl -> /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/meshes
+[0.626s] copying meshes/linkpequeno_1.stl -> /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/meshes
+[0.626s] copying meshes/endfactor_1.stl -> /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/meshes
+[0.627s] creating /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/config
+[0.627s] copying config/display.rviz -> /home/host/ros_ws/install/graspeurdf_description/share/graspeurdf_description/config
+[0.627s] running install_egg_info
+[0.627s] Copying ../../build/graspeurdf_description/graspeurdf_description.egg-info to /home/host/ros_ws/install/graspeurdf_description/lib/python3.10/site-packages/graspeurdf_description-0.0.0-py3.10.egg-info
+[0.628s] running install_scripts
+[0.641s] writing list of installed files to '/home/host/ros_ws/build/graspeurdf_description/install.log'
+[0.656s] Invoked command in '/home/host/ros_ws/src/graspeurdf_description' returned '0': PYTHONPATH=/home/host/ros_ws/build/graspeurdf_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/host/ros_ws/install/graspeurdf_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../build/graspeurdf_description build --build-base /home/host/ros_ws/build/graspeurdf_description/build install --record /home/host/ros_ws/build/graspeurdf_description/install.log --install-scripts $base/lib/graspeurdf_description --single-version-externally-managed install_data

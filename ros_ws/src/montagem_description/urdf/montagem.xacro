@@ -1,0 +1,197 @@
+<?xml version="1.0" ?>
+<robot name="montagem" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find montagem_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find montagem_description)/urdf/montagem.trans" />
+<xacro:include filename="$(find montagem_description)/urdf/montagem.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-3.793254127438435e-18 -3.793254127438435e-18 0.026500000000000003" rpy="0 0 0"/>
+    <mass value="1.1763536611734302"/>
+    <inertia ixx="0.00054" iyy="0.00054" izz="0.000529" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find montagem_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find montagem_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rotacionalpequeno_1">
+  <inertial>
+    <origin xyz="0.0 0.015000356218094904 0.00964996017692743" rpy="0 0 0"/>
+    <mass value="0.15384250264568528"/>
+    <inertia ixx="5e-05" iyy="8e-06" izz="5e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.029996 -0.2455" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find montagem_description)/meshes/rotacionalpequeno_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.029996 -0.2455" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find montagem_description)/meshes/rotacionalpequeno_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="endfactor_1">
+  <inertial>
+    <origin xyz="-3.206969956259798e-10 0.24049635982298995 -0.002508226805447933" rpy="0 0 0"/>
+    <mass value="0.1076530467419571"/>
+    <inertia ixx="1.1e-05" iyy="1.3e-05" izz="1.8e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.240496 -0.270504" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find montagem_description)/meshes/endfactor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.240496 -0.270504" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find montagem_description)/meshes/endfactor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="linkgrande_1">
+  <inertial>
+    <origin xyz="0.0 0.0 0.049999999999999996" rpy="0 0 0"/>
+    <mass value="0.9864600932271952"/>
+    <inertia ixx="0.000921" iyy="0.000921" izz="0.000197" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.0 -0.053" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find montagem_description)/meshes/linkgrande_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.0 -0.053" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find montagem_description)/meshes/linkgrande_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rotacionalgrande_1">
+  <inertial>
+    <origin xyz="0.0 -0.017499999999999998 -0.04083760550324669" rpy="0 0 0"/>
+    <mass value="0.1984169956244406"/>
+    <inertia ixx="5e-05" iyy="1.6e-05" izz="4.9e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.0 -0.206" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find montagem_description)/meshes/rotacionalgrande_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.0 -0.206" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find montagem_description)/meshes/rotacionalgrande_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="prismatica_1">
+  <inertial>
+    <origin xyz="4.126627129485931e-08 0.12800435621809492 0.0647561892724049" rpy="0 0 0"/>
+    <mass value="0.06955361957457033"/>
+    <inertia ixx="1.6e-05" iyy="1.8e-05" izz="1.8e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.158 -0.123" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find montagem_description)/meshes/prismatica_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.158 -0.123" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find montagem_description)/meshes/prismatica_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="linkpequeno_1">
+  <inertial>
+    <origin xyz="0.0 3.562180949066851e-07 0.01999999999999999" rpy="0 0 0"/>
+    <mass value="0.22195352097611884"/>
+    <inertia ixx="4.2e-05" iyy="4.2e-05" izz="2.5e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.029996 -0.2055" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find montagem_description)/meshes/linkpequeno_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.029996 -0.2055" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find montagem_description)/meshes/linkpequeno_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid 5" type="fixed">
+  <origin xyz="-0.0 0.0 0.04" rpy="0 0 0"/>
+  <parent link="linkpequeno_1"/>
+  <child link="rotacionalpequeno_1"/>
+</joint>
+
+<joint name="endfactor" type="revolute">
+  <origin xyz="0.0 -0.2105 0.025004" rpy="0 0 0"/>
+  <parent link="rotacionalpequeno_1"/>
+  <child link="endfactor_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="0.698132" lower="-0.698132" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 7" type="continuous">
+  <origin xyz="0.0 0.0 0.053" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="linkgrande_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Rigid 8" type="fixed">
+  <origin xyz="0.0 0.0 0.153" rpy="0 0 0"/>
+  <parent link="linkgrande_1"/>
+  <child link="rotacionalgrande_1"/>
+</joint>
+
+<joint name="Revolute 9" type="revolute">
+  <origin xyz="-0.0 -0.158 -0.083" rpy="0 0 0"/>
+  <parent link="rotacionalgrande_1"/>
+  <child link="prismatica_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="0.785398" lower="-0.785398" effort="100" velocity="100"/>
+</joint>
+
+<joint name="prismatica1" type="prismatic">
+  <origin xyz="0.0 0.128004 0.0825" rpy="0 0 0"/>
+  <parent link="prismatica_1"/>
+  <child link="linkpequeno_1"/>
+  <axis xyz="0 0 1"/>
+  <limit lower="0.0" upper="0.1" effort="50" velocity="0.2"/>
+</joint>
+
+</robot>
