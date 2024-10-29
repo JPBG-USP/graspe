@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<robot name="graspeurdf" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<robot name="graspe" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
 <transmission name="theta4_tran">
   <type>transmission_interface/SimpleTransmission</type>
@@ -37,12 +37,12 @@
 <transmission name="d3_tran">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="d3">
-    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   </joint>
   <actuator name="d3_actr">
-    <mechanicalReduction>1.0</mechanicalReduction>
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
   </actuator>
 </transmission>
-
 
 </robot>

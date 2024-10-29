@@ -23,10 +23,17 @@ RUN ln -snf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime && echo "Americ
 RUN apt-get update \
     && apt-get install -y \
         ros-humble-gazebo-ros-pkgs \
-        ros-humble-robot-state-publisher \
-        ros-humble-tf2-ros \
-        ros-humble-xacro \
         ros-humble-rviz2 \
+        ros-humble-robot-state-publisher \
+        ros-humble-joint-state-publisher-gui \
+        ros-humble-tf2-ros \
+        ros-humble-tf-transformations \
+        ros-humble-xacro \
+        ros-humble-ros2-control \
+        ros-humble-ros2-controllers\
+        ros-humble-ros-gz-* \
+        ros-humble-*-ros2-control \
+        ros-humble-moveit* \
     && rm -rf /var/lib/apt/lists/*
 
 # Etapa 4: Configuração de ambiente de usuário

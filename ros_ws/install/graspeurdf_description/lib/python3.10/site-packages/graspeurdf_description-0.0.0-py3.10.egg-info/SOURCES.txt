@@ -26,4 +26,5 @@ test/test_pep257.py
 urdf/graspeurdf.gazebo
 urdf/graspeurdf.trans
 urdf/graspeurdf.xacro
+urdf/graspeurdf_ros2_control.xacro
 urdf/materials.xacro

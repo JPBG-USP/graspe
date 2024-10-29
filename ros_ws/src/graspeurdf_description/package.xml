@@ -13,6 +13,9 @@
   <depend>joint_state_publisher</depend>
   <depend>joint_state_publisher_gui</depend>
 
+  <exec_depend condition="$ROS_DISTRO >= iron">gz_ros2_control</exec_depend>
+  <exec_depend condition="$ROS_DISTRO == humble">ign_ros2_control</exec_depend>
+
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
