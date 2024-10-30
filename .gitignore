@@ -1,4 +1,4 @@
 # Ignore colcon build folders
-/ros_ws/install/
-/ros_ws/build/
-/ros_ws/log/
+ros_ws/install/
+ros_ws/build/
+ros_ws/log/
