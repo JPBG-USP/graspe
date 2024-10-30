@@ -1,11 +1,11 @@
 <?xml version="1.0" ?>
 <robot name="graspe" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:arg name="is_ignition" default="true"/>
-
 <xacro:include filename="$(find graspe_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find graspe_description)/urdf/graspe.trans" />
 <xacro:include filename="$(find graspe_description)/urdf/graspe.gazebo" />
+<xacro:include filename="$(find graspe_description)/urdf/graspe_joints_limits.xacro" />
+<xacro:include filename="$(find graspe_description)/urdf/graspe_gazebo_control.xacro" />
 
 <!-- Theta1 -->
 <xacro:property name="ajuste1" value="0.04"/>
@@ -60,11 +60,12 @@
   </collision>
 </link>
 
-<joint name="theta1" type="continuous">
+<joint name="theta1" type="revolute">
   <origin xyz="0.0 0.0 0.053" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="revolution_link_1"/>
   <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="${theta1_max}" lower="${theta1_min}" effort="${effort_max}" velocity="${velocity_max}"/>
 </joint>
 
 <!-- Fixed jointJoint -->
@@ -123,7 +124,7 @@
   <parent link="fixed_link_1"/>
   <child link="revolution2_link_1"/>
   <axis xyz="0.0 -1.0 0.0"/>
-  <limit upper="0.785398" lower="-0.785398" effort="100" velocity="100"/>
+  <limit upper="${theta2_max}" lower="${theta2_min}" effort="${effort_max}" velocity="${velocity_max}"/>
 </joint>
 
 <!-- d3 -->
@@ -154,7 +155,7 @@
   <parent link="revolution2_link_1"/>
   <child link="slider_link_1"/>
   <axis xyz="0.0 0.0 1.0"/>
-  <limit upper="0.0" lower="-0.026" effort="100" velocity="100"/>
+  <limit upper="${d3_max}" lower="${d3_min}" effort="${effort_max}" velocity="${velocity_max}"/>
 </joint>
 
 <!-- fixed -->
@@ -213,7 +214,7 @@
   <parent link="fixed2_link_1"/>
   <child link="endeffector_link_1"/>
   <axis xyz="0.0 -1.0 0.0"/>
-  <limit upper="0.698132" lower="-0.698132" effort="100" velocity="100"/>
+  <limit upper="${theta4_max}" lower="${theta4_min}" effort="${effort_max}" velocity="${velocity_max}"/>
 </joint>
 
 

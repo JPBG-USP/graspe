@@ -1,16 +1,6 @@
 <?xml version="1.0" ?>
 <robot name="graspe" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-<transmission name="theta4_tran">
-  <type>transmission_interface/SimpleTransmission</type>
-  <joint name="theta4">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-  </joint>
-  <actuator name="theta4_actr">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    <mechanicalReduction>1</mechanicalReduction>
-  </actuator>
-</transmission>
 
 <transmission name="theta1_tran">
   <type>transmission_interface/SimpleTransmission</type>
@@ -40,6 +30,17 @@
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   </joint>
   <actuator name="d3_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="theta4_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="theta4">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="theta4_actr">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>

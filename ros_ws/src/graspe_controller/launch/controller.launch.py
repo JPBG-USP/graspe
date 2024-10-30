@@ -13,17 +13,17 @@ def generate_launch_description():
         ]
     )
     
-    position_controler_spawner = Node(
+    position_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
         arguments=[
-            "position_controler",
+            "position_controller",
             "--controller-manager",
             "/controller_manager"
         ]
     )
     
-    return LaunchDescription(
+    return LaunchDescription([
         joints_state_broadcaster_spawner,
-        position_controler_spawner
-    )
+        position_controller_spawner
+    ])

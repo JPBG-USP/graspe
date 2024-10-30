@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="graspe">
+
+    <xacro:include filename="$(find graspe_description)/urdf/graspe_joints_limits.xacro" />
+
+    <ros2_control name="GazeboSystem" type="system">
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+
+        <!-- theta1 -->
+        <joint name="theta1">
+            <command_interface name="position">
+                <param name="min">${theta1_min}</param>
+                <param name="max">${theta1_max}</param>
+            </command_interface>
+            
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="effort"/>
+        </joint>
+
+        <!-- theta2 -->
+        <joint name="theta2">
+            <command_interface name="position">
+                <param name="min">${theta2_min}</param>
+                <param name="max">${theta2_max}</param>
+            </command_interface>
+
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="effort"/>
+        </joint>
+
+
+        <!-- d3 -->
+        <joint name="d3">
+            <command_interface name="position">
+                <param name="min">${d3_min}</param>
+                <param name="max">${d3_max}</param>
+            </command_interface>
+
+            <state_interface name="position">
+                <param name="initial_value">-0.026</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="effort"/>
+        </joint>
+
+        <!-- theta4 -->
+        <joint name="theta4">
+            <command_interface name="position">
+                <param name="min">${theta4_min}</param>
+                <param name="max">${theta4_max}</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+            <state_interface name="effort"/>
+        </joint>
+    </ros2_control>
+</robot>

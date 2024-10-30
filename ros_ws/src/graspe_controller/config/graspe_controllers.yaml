@@ -1,15 +1,15 @@
 controller_manager:
-  ros_parameters:
+  ros__parameters:
     update_rate: 100 # 100hz
     use_sim_time: true
 
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-    position_controler:
+    position_controller:
       type: position_controllers/JointGroupPositionController
 
-position_controler:
+position_controller:
   ros__parameters:
     joints:
       - theta1
