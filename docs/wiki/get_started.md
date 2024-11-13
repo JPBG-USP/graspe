@@ -1,27 +1,37 @@
-# Get Started
+# Setup
 
-This project is built on containers, so it is necessary to have Docker installed. You can follow the steps to install Docker [here](https://docs.docker.com/get-started/get-docker/).
+> ❗ **Docker Required**: This project runs in a containerized environment, so you'll need Docker installed on your system. Follow the [Docker installation guide](https://docs.docker.com/get-started/get-docker/) if Docker is not yet installed.
 
-To simplify the use and execution of the Docker container, scripts have been created for **build** and **run** operations. They can be found in the `docker/scripts` folder.
+To streamline the Docker image build and container execution process, we provide scripts located in the `docker/scripts` folder for **building** and **running** the container.
 
-First, in the graspe folder, you need to build the Docker image by running the following command:
+### Step 1: Build the Docker Image
 
+In the `graspe` project folder, build the Docker image by running:
 ```bash
 bash docker/scripts/build.sh
 ```
-If everything goes well, you should receive: ```[xx:xx:xx][INFO] Docker image built successfully.```.
+If the image builds successfully, you should see a confirmation message: `[xx:xx:xx][INFO] Docker image built successfully.`
 
-To start the container, simply run the command:
+### Step 2: Run the Docker Container
 
+To start the container, execute the following command:
 ```bash
 bash docker/scripts/run.sh
 ```
+> **Note**: If this is not your first time starting the container, you might see a message indicating an existing container, with the option to remove it and start a new one. For initial runs, simply open a new container. However, if you’re working on development with Grasp-e, review the detailed documentation at the project [wiki](https://github.com/JPBG-USP/graspe/wiki/4.-Docker).
 
->If this is not your first time starting the container, you will receive a message indicating that a container already exists, along with an option to delete the existing container and open a new one. If you are just getting started, feel free to open a new container. However, if you are developing a project using Grasp-e, we recommend reviewing the documentation available at [docs/index.md](docs/index.md).
+# Running the demo 
 
-Now inside the container you have the ROS2 Humble environment, with the workspace and the graspe packages. To run the demo, you can run it inside the container
+Once inside the container, the container provides the ROS 2 Humble environment, with the workspace and the necessary Grasp-e packages preloaded.
+First, go to the `ros_ws`, and build it:
 
+```bash
+cd ros_ws/
+colcon build
+```
+
+Now you have every thing setup to launch a demo of Grasp-e:
 ```bash
 ros2 launch graspe_common demo_graspe.launch.py
 ```
-(This command is not implement yet)
+*(Note: This command is currently not implemented.)*
