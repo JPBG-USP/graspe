@@ -46,4 +46,15 @@
   </actuator>
 </transmission>
 
+<transmission name="scissor_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="scissor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="scissor_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
 </robot>

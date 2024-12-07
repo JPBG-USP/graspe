@@ -1,28 +1,18 @@
 <?xml version="1.0" ?>
 <robot name="graspe" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+<!-- include -->
 <xacro:include filename="$(find graspe_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find graspe_description)/urdf/graspe.trans" />
 <xacro:include filename="$(find graspe_description)/urdf/graspe.gazebo" />
 <xacro:include filename="$(find graspe_description)/urdf/graspe_joints_limits.xacro" />
 <xacro:include filename="$(find graspe_description)/urdf/graspe_gazebo_control.xacro" />
 
-<!-- Theta1 -->
-<xacro:property name="ajuste1" value="0.04"/>
-<xacro:property name="ajuste2" value="0.083"/>
-<xacro:property name="ajuste3" value="0.0405"/>
-<xacro:property name="ajuste4" value="0.128004"/>
-<xacro:property name="ajuste5" value="0.05"/>
-<xacro:property name="ajuste6" value="0.01"/>
-<xacro:property name="ajuste7" value="0.025004"/>
-<xacro:property name="ajuste8" value="${0.2105 + 0.158 - ajuste4 }"/>
-<xacro:property name="ajuste9" value="0.015"/>
-
 <link name="base_link">
   <inertial>
-    <origin xyz="-3.793254127438435e-18 -3.793254127438435e-18 0.026500000000000003" rpy="0 0 0"/>
-    <mass value="1.1763536611734302"/>
-    <inertia ixx="0.00054" iyy="0.00054" izz="0.000529" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="1.5"/>
+    <inertia ixx="0.002199" iyy="0.003694" izz="0.003711" ixy="7e-06" iyz="0.000147" ixz="-1.3e-05"/>
   </inertial>
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -39,183 +29,154 @@
   </collision>
 </link>
 
-<link name="revolution_link_1">
+<!-- first joint (theta1) -->
+<link name="rot1_link">
   <inertial>
-    <origin xyz="0.0 0.0 0.049999999999999996" rpy="0 0 0"/>
-    <mass value="0.9864600932271952"/>
-    <inertia ixx="0.000921" iyy="0.000921" izz="0.000197" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="1.5"/>
+    <inertia ixx="0.002199" iyy="0.003694" izz="0.003711" ixy="7e-06" iyz="0.000147" ixz="-1.3e-05"/>
   </inertial>
   <visual>
-    <origin xyz="0.0 0.0 -0.053" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find graspe_description)/meshes/revolution_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find graspe_description)/meshes/rot1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="0.0 0.0 -0.053" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find graspe_description)/meshes/revolution_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find graspe_description)/meshes/rot1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
 <joint name="theta1" type="revolute">
-  <origin xyz="0.0 0.0 0.053" rpy="0 0 0"/>
+  <origin xyz="0.0 0.0 0.08" rpy="0.0 0.0 0.0"/>
   <parent link="base_link"/>
-  <child link="revolution_link_1"/>
+  <child link="rot1_link"/>
   <axis xyz="0.0 0.0 1.0"/>
-  <limit upper="${theta1_max}" lower="${theta1_min}" effort="${effort_max}" velocity="${velocity_max}"/>
+  <limit lower="${theta1_min}" upper="${theta1_max}" effort="${effort_max}" velocity="${velocity_max}"/>
 </joint>
 
-<!-- Fixed jointJoint -->
-<link name="fixed_link_1">
+<!-- second joint (theta2) -->
+<link name="rot2_link">
   <inertial>
-    <origin xyz="0.0 -0.017499999999999998 ${-0.04083760550324669 + ajuste1}" rpy="0 0 0"/>
-    <mass value="0.1984169956244406"/>
-    <inertia ixx="5e-05" iyy="1.6e-05" izz="4.9e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    <origin xyz="0 0 0" rpy="0 0 1.5707"/>
+    <mass value="1.5"/>
+    <inertia ixx="0.002199" iyy="0.003694" izz="0.003711" ixy="7e-06" iyz="0.000147" ixz="-1.3e-05"/>
   </inertial>
   <visual>
-    <origin xyz="-0.0 0.0 ${-0.206 + ajuste1}" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 1.5707"/>
     <geometry>
-      <mesh filename="file://$(find graspe_description)/meshes/fixed_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find graspe_description)/meshes/rot2.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="-0.0 0.0 ${-0.206 + ajuste1}" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 1.5707"/>
     <geometry>
-      <mesh filename="file://$(find graspe_description)/meshes/fixed_link_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
-
-<joint name="rigid1" type="fixed">
-  <origin xyz="0.0 0.0 ${0.153 - ajuste1}" rpy="0 0 0"/>
-  <parent link="revolution_link_1"/>
-  <child link="fixed_link_1"/>
-</joint>
-
-
-<!-- Theta2 -->
-<link name="revolution2_link_1">
-  <inertial>
-    <origin xyz="4.126627129485931e-08 ${0.12800435621809492 - ajuste4} ${0.0647561892724049 - ajuste2 + ajuste3}" rpy="0 0 0"/>
-    <mass value="0.06955361957457033"/>
-    <inertia ixx="1.6e-05" iyy="1.8e-05" izz="1.8e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="0.0 ${0.158 - ajuste4} ${-0.123 - ajuste2 + ajuste3}" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find graspe_description)/meshes/revolution2_link_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="0.0 ${0.158 - ajuste4} ${-0.123 - ajuste2 + ajuste3}" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find graspe_description)/meshes/revolution2_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find graspe_description)/meshes/rot2.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
 <joint name="theta2" type="revolute">
-  <origin xyz="-0.0 ${-0.158 + ajuste4} ${-0.083 + ajuste2}" rpy="0 0 0"/>
-  <parent link="fixed_link_1"/>
-  <child link="revolution2_link_1"/>
-  <axis xyz="0.0 -1.0 0.0"/>
-  <limit upper="${theta2_max}" lower="${theta2_min}" effort="${effort_max}" velocity="${velocity_max}"/>
+  <origin xyz="0.0 0.0 0.119" rpy="0.0 0.0 0.0"/>
+  <parent link="rot1_link"/>
+  <child link="rot2_link"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit lower="${theta2_min}" upper="${theta2_max}" effort="${effort_max}" velocity="${velocity_max}"/>
 </joint>
 
-<!-- d3 -->
-
-<link name="slider_link_1">
+<!-- prismatic joint (d3) -->
+<link name="prismatic3_link">
   <inertial>
-    <origin xyz="0.0 3.562180949066851e-07 0.01999999999999999" rpy="0 0 0"/>
-    <mass value="0.22195352097611884"/>
-    <inertia ixx="4.2e-05" iyy="4.2e-05" izz="2.5e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    <origin xyz="0 0 0" rpy="0 0 3.1415"/>
+    <mass value="1.5"/>
+    <inertia ixx="0.002199" iyy="0.003694" izz="0.003711" ixy="7e-06" iyz="0.000147" ixz="-1.3e-05"/>
   </inertial>
   <visual>
-    <origin xyz="-0.0 0.029996 -0.2055" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 3.1415"/>
     <geometry>
-      <mesh filename="file://$(find graspe_description)/meshes/slider_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find graspe_description)/meshes/prismatic3.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="-0.0 0.029996 -0.2055" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 3.1415"/>
     <geometry>
-      <mesh filename="file://$(find graspe_description)/meshes/slider_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find graspe_description)/meshes/prismatic3.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
 <joint name="d3" type="prismatic">
-  <origin xyz="0.0 ${0.128004 - ajuste4} ${0.0825 - ajuste5}" rpy="0 0 0"/>
-  <parent link="revolution2_link_1"/>
-  <child link="slider_link_1"/>
+  <origin xyz="-0.023 0.0 0.008" rpy="0.0 0.0 0.0"/>
+  <parent link="rot2_link"/>
+  <child link="prismatic3_link"/>
   <axis xyz="0.0 0.0 1.0"/>
-  <limit upper="${d3_max}" lower="${d3_min}" effort="${effort_max}" velocity="${velocity_max}"/>
+  <limit lower="${d3_min}" upper="${d3_max}" effort="${effort_max}" velocity="${velocity_max}"/>
 </joint>
 
-<!-- fixed -->
-<link name="fixed2_link_1">
+<!-- End effector (theta4) -->
+<link name="rot4_link">
   <inertial>
-    <origin xyz="0.0 0.015000356218094904 ${0.00964996017692743 - ajuste6}" rpy="0 0 0"/>
-    <mass value="0.15384250264568528"/>
-    <inertia ixx="5e-05" iyy="8e-06" izz="5e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+    <origin xyz="0 0 0" rpy="0 1.5707 3.1415"/>
+    <mass value="1.5"/>
+    <inertia ixx="0.002199" iyy="0.003694" izz="0.003711" ixy="7e-06" iyz="0.000147" ixz="-1.3e-05"/>
   </inertial>
   <visual>
-    <origin xyz="0.0 0.029996 ${-0.2455 - ajuste6}" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 1.5707 3.1415"/>
     <geometry>
-      <mesh filename="file://$(find graspe_description)/meshes/fixed2_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find graspe_description)/meshes/rot4.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
-    <origin xyz="0.0 0.029996 ${-0.2455 - ajuste6}" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 1.5707 3.1415"/>
     <geometry>
-      <mesh filename="file://$(find graspe_description)/meshes/fixed2_link_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
-
-<joint name="rigid2" type="fixed">
-  <origin xyz="-0.0 0.0 ${0.04 + ajuste6}" rpy="0 0 0"/>
-  <parent link="slider_link_1"/>
-  <child link="fixed2_link_1"/>
-</joint>
-
-<!-- Theta4 -->
-
-<link name="endeffector_link_1">
-  <inertial>
-    <origin xyz="-3.206969956259798e-10 ${0.24049635982298995 - ajuste8} ${-0.002508226805447933 + ajuste9}" rpy="0 0 0"/>
-    <mass value="0.1076530467419571"/>
-    <inertia ixx="1.1e-05" iyy="1.3e-05" izz="1.8e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.0 ${0.240496 - ajuste8} ${-0.270504 + ajuste9}" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find graspe_description)/meshes/endeffector_link_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.0 ${0.240496 - ajuste8} ${-0.270504 + ajuste9}" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find graspe_description)/meshes/endeffector_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find graspe_description)/meshes/rot4.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
 
 <joint name="theta4" type="revolute">
-  <origin xyz="0.0 ${-0.2105 + ajuste8} ${0.025004 - ajuste7}" rpy="0 0 0"/>
-  <parent link="fixed2_link_1"/>
-  <child link="endeffector_link_1"/>
-  <axis xyz="0.0 -1.0 0.0"/>
-  <limit upper="${theta4_max}" lower="${theta4_min}" effort="${effort_max}" velocity="${velocity_max}"/>
+  <origin xyz="0.0195 -0.015 0.1605" rpy="1.5707 0.0 0.0"/>
+  <parent link="prismatic3_link"/>
+  <child link="rot4_link"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit lower="${theta4_min}" upper="${theta4_max}" effort="${effort_max}" velocity="${velocity_max}"/>
 </joint>
 
+<!-- end effector (scissor) -->
+<link name="rot5_link">
+  <inertial>
+    <origin xyz="0 0 0.006" rpy="0 0 -3.1415"/>
+    <mass value="1.5"/>
+    <inertia ixx="0.002199" iyy="0.003694" izz="0.003711" ixy="7e-06" iyz="0.000147" ixz="-1.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0.006" rpy="0 0 -3.1415"/>
+    <geometry>
+      <mesh filename="file://$(find graspe_description)/meshes/rot5.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0.006" rpy="0 0 -3.1415"/>
+    <geometry>
+      <mesh filename="file://$(find graspe_description)/meshes/rot5.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="scissor" type="revolute">
+  <origin xyz="0.0 0.06715 -0.02" rpy="0.0 -1.5707 0.0"/>
+  <parent link="rot4_link"/>
+  <child link="rot5_link"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit lower="${scissor_min}" upper="${scissor_max}" effort="${effort_max}" velocity="${velocity_max}"/>
+</joint>
 
 </robot>
