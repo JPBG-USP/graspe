@@ -16,6 +16,7 @@ trajectory_position_controller:
       - theta2
       - d3
       - theta4
+      - scissor
 
     command_interfaces:
       - position

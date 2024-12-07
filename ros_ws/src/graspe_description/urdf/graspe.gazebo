@@ -17,42 +17,42 @@
   <gravity>true</gravity>
 </gazebo>
 
-<gazebo reference="fixed2_link_1">
+<gazebo reference="rot1_link">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>false</self_collide>
 </gazebo>
 
-<gazebo reference="endeffector_link_1">
+<gazebo reference="rot2_link">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>false</self_collide>
 </gazebo>
 
-<gazebo reference="revolution_link_1">
+<gazebo reference="prismatic3_link">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>false</self_collide>
 </gazebo>
 
-<gazebo reference="fixed_link_1">
+<gazebo reference="rot4_link">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>false</self_collide>
 </gazebo>
 
-<gazebo reference="revolution2_link_1">
+<gazebo reference="rot5_link">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <self_collide>false</self_collide>
 </gazebo>
 
-<gazebo reference="slider_link_1">
+<gazebo reference="scissor">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
