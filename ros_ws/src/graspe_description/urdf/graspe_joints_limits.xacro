@@ -4,14 +4,14 @@
     <xacro:property name="theta1_max" value="3.1415"/>
     <xacro:property name="theta1_min" value="${-theta1_max}"/> 
 
-    <xacro:property name="theta2_max" value="3.1415"/>
-    <xacro:property name="theta2_min" value="${-theta2_max}"/>
+    <xacro:property name="theta2_max" value="1.5707"/>
+    <xacro:property name="theta2_min" value="0.764"/>
 
     <xacro:property name="d3_max" value="0.00"/>
     <xacro:property name="d3_min" value="-0.070"/>
 
-    <xacro:property name="theta4_max" value="3.1415"/>
-    <xacro:property name="theta4_min" value="${-theta4_max}"/>
+    <xacro:property name="theta4_max" value="0.221"/>
+    <xacro:property name="theta4_min" value="-0.662"/>
 
     <xacro:property name="scissor_max" value="0.35"/>
     <xacro:property name="scissor_min" value="-0.49"/>

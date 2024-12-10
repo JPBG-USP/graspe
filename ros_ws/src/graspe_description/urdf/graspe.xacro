@@ -91,7 +91,7 @@
 </link>
 
 <joint name="theta2" type="revolute">
-  <origin xyz="0.0 0.0 0.119" rpy="0.0 0.0 0.0"/>
+  <origin xyz="0.0 0.0 0.122" rpy="0.0 0.0 0.0"/>
   <parent link="rot1_link"/>
   <child link="rot2_link"/>
   <axis xyz="0.0 1.0 0.0"/>
