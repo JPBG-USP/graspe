@@ -137,8 +137,8 @@ Visualization Manager:
           Value: true
       Marker Scale: 0.5
       Name: TF
-      Show Arrows: true
-      Show Axes: true
+      Show Arrows: false
+      Show Axes: false
       Show Names: false
       Tree:
         base_link:
