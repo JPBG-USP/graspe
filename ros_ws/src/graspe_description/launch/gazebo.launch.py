@@ -40,7 +40,7 @@ def generate_launch_description():
             ])
         ]),
         launch_arguments={
-            'pause': 'true'
+            'pause': 'false'
         }.items()
     )
 
