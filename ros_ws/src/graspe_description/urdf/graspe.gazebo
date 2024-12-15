@@ -1,13 +1,17 @@
 <?xml version="1.0" ?>
 <robot name="graspe" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
+<!-- Defining Colors -->
 <xacro:property name="body_color" value="Gazebo/Silver" />
 
+<!-- Add ros2_control plugin -->
 <gazebo>
   <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
     <parameters>$(find graspe_controller)/config/graspe_controllers.yaml</parameters>
   </plugin>
 </gazebo>
+
+<!-- Physics configuration of links -->
 
 <gazebo reference="base_link">
   <material>${body_color}</material>

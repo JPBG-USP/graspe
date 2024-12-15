@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="graspe">
     
+    <!-- Here we define the graspe joint limits, all features the use joint limites have this include on it -->
+
     <xacro:property name="theta1_max" value="3.1415"/>
     <xacro:property name="theta1_min" value="${-theta1_max}"/> 
 
