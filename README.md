@@ -61,7 +61,7 @@ ros2 launch graspe_description general.launch.py
 You should be able to see the Rviz representation of the robot, along with a window with sliders that let you control the position of the end effector by adjusting the state of each joint. An example of this procedure is shown below.
 
 <p align="center">
-  <img src="./docs/images/Rviz_visualization.jpeg" width="400">
+  <img src="./docs/images/Rviz_visualization.jpeg" width="750">
 </p>
 
 ### Gazebo
