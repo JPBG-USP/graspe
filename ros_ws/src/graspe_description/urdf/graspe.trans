@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="graspe" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
+<!-- Defining joint transmission -->
 
 <transmission name="theta1_tran">
   <type>transmission_interface/SimpleTransmission</type>

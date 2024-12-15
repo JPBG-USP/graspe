@@ -2,6 +2,12 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="graspe">
 
+    <!-- 
+        This file contains the controller configuration for the graspe manipulator
+        Here you will find the interfaces that we use.
+    -->
+
+    <!-- Joints Limits -->
     <xacro:include filename="$(find graspe_description)/urdf/graspe_joints_limits.xacro" />
 
     <ros2_control name="GazeboSystem" type="system">

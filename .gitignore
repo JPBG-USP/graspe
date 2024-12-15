@@ -2,3 +2,10 @@
 ros_ws/install/
 ros_ws/build/
 ros_ws/log/
+
+# Ignore vscode settings
+ros_ws/.vscode/
+.vscode/
+
+# Ignore peter_corke __pycache__
+peter_corke/__pycache__

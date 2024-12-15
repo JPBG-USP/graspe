@@ -2,11 +2,13 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
 <name>graspe_description</name>
-  <version>0.0.0</version>
-<description>The graspe_description package</description>
-  <maintainer email="todo@todo.com">author</maintainer>
-  <license>TODO: License declaration</license>
+  <version>0.1.0</version>
+  <description>This package contains the GRASPE description, as well gazebo and rviz configurations</description>
+  <maintainer email="joao_garciajp@usp.br">Joao Pedro</maintainer>
+  <maintainer email="joaoassuero@usp.br">Joao Assuero</maintainer>
+  <license>MIT</license>
 
+  <!-- Dependencies -->
   <depend>xacro</depend>
   <depend>rviz2</depend>
   <depend>robot_state_publisher</depend>
@@ -15,6 +17,7 @@
   <depend>ros_gz_sim</depend>
   <depend>ros_gz_bridge</depend>
 
+  <!-- Test dependencies -->
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>

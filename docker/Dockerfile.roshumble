@@ -55,7 +55,7 @@ USER $USERNAME
 COPY docker/config/bashrc /home/${USERNAME}/.bashrc
 
 # Settings for start state of the container
-WORKDIR /home/$USERNAME
+WORKDIR /home/$USERNAME/ros_ws
 ENV HOME=/home/$USERNAME
 
 # Etapa 5: Comando padrão

@@ -47,7 +47,7 @@ if ! docker ps --format '{{.Names}}' | grep -q "^$CONTAINERNAME$"; then
     exit 1
 fi
 
-read -p "Enter the command you want to execute in the container (Enter nothing to just open a new terminal): " command_terminal
+read -p "Enter the command you want to execute in the container (Press Enter to just open a new terminal): " command_terminal
 
 if [ -z "$command_terminal" ]; then
     command_terminal=/bin/bash
