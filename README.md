@@ -100,10 +100,11 @@ Below is a comparison of the state of the robot before and after the command.
   <img src="./docs/images/pos_cmd_pose_gazebo.png" width="300" /> 
 </p>
 
-Now you are ready to use the graspe project, you can see more about the project and its ros packages and docker in the project [wiki](https://github.com/JPBG-USP/graspe/wiki).
+You can also see the tutoral video in portuguese for running the commands
 
 [![Final Video 2023](https://drive.google.com/uc?id=11bYisAMW_TVPbExLbYN8eiNSTBT2jwM4)](https://drive.google.com/file/d/16iZdYxlaE_CvwlOo4rdcEHDZO_hONprg/view?usp=sharing)
 
+Now you are ready to use the graspe project, you can see more about the project and its ros packages and docker in the project [wiki](https://github.com/JPBG-USP/graspe/wiki).
 
 # Team Grasp-e
 | Photo | Name | Contribution | GitHub | LinkedIn | Email |
