@@ -8,4 +8,4 @@ ros_ws/.vscode/
 .vscode/
 
 # Ignore peter_corke __pycache__
-peter_corke/__pycache__
+peter_corke/__pycache__/
