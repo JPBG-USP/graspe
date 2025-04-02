@@ -104,7 +104,7 @@ std::vector<float> GraspeKinematics::inverseKinematics(SE3 end_effector){
  * 
  * @paragraph theta1 is the rotation along the z axis, r is the radius, z is the heigh coordinate and phi is the angle of the end effector with the ground plane
  */
-std::vector<float> GraspeKinematics::inverseKinematicsByControllerCmd(std::vector<float> command){
+std::vector<float> GraspeKinematics::inverseKinematicsCylindrical(std::vector<float> command){
     std::vector<float> joint_states;
 
     // theta1
