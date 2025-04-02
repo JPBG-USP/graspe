@@ -35,8 +35,8 @@ public:
     GraspeKinematics();
     SE3 directKinematics(std::vector<float> q);
 
+    // The function below need to be implemented
+    std::vector<float> inverseKinematics(SE3 position);
 };
-
-
 
 #endif 
