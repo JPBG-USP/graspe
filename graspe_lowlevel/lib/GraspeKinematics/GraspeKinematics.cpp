@@ -50,6 +50,11 @@ SE3 GraspeKinematics::directKinematics(std::vector<float> q){
     return end_effector;
 }
 
+/**
+ * @brief Inverse Kinematics on cartesian system
+ * 
+ * @param end_effector This is the varible cabable of define a position on a 3D space
+ */
 std::vector<float> GraspeKinematics::inverseKinematics(SE3 end_effector){
     std::vector<float> joint_states = {0.0, 0.0, 0.0, 0.0};
 
@@ -90,3 +95,47 @@ std::vector<float> GraspeKinematics::inverseKinematics(SE3 end_effector){
 
     return joint_states;
 }
+
+
+/**
+ * @brief Inverse kinematics in cylinder coordinates.
+ * 
+ * @param command = {theta1, r, z, phi}
+ * 
+ * @paragraph theta1 is the rotation along the z axis, r is the radius, z is the heigh coordinate and phi is the angle of the end effector with the ground plane
+ */
+std::vector<float> GraspeKinematics::inverseKinematicsByControllerCmd(std::vector<float> command){
+    std::vector<float> joint_states;
+
+    // theta1
+    joint_states[0] = command[0];
+
+    // Now on os more complex, I sugest to read the docs 
+    
+    // theta3
+    // solution of the 3 link plannar manipulation
+    float x_2 = command[1];
+    float z_2 = command[2] - this->_l1;
+
+    // Angle with the ground plane
+    float phi = command[3];
+
+    // pose of the 3 joint
+    float p3x = x_2 - this->_l4 * cos(phi);
+    float p3y = z_2 - this->_l4 * sin(phi);
+
+    float cos3 = (p3x*p3x +p3y*p3y - _l2*_l2 - _l3*_l3) / (2*_l2*_l3);
+    float sin3 = - sqrt(1 - cos3*cos3); // negative, só elbow is point up
+
+    joint_states[2] = atan2(sin3, cos3);
+    
+    // theta2
+    float sin2 = ((_l2 + _l3*cos3)*p3y - _l3*sin3*p3x) / (p3x*p3x +p3y*p3y);
+    float cos2 = ((_l2 + _l3*cos3)*p3x + _l3*sin3*p3y) / (p3x*p3x +p3y*p3y);
+    joint_states[1] = atan2(sin2, cos2);
+
+    // theta4
+    joint_states[3] = phi - joint_states[1] - joint_states[2];
+
+    return joint_states;
+};

@@ -23,6 +23,9 @@ struct SE3
             pos(3, 0), rpy(3, 0), quat(4, 0) {}
 };
 
+
+// position command theta1, r e z
+
 class GraspeKinematics
 {
 private:
@@ -34,9 +37,8 @@ private:
 public:
     GraspeKinematics();
     SE3 directKinematics(std::vector<float> q);
-
-    // The function below need to be implemented
     std::vector<float> inverseKinematics(SE3 position);
+    std::vector<float> inverseKinematicsCylindrical(std::vector<float> command);
 };
 
 #endif 
