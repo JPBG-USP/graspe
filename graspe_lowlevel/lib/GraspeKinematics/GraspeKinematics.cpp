@@ -1,7 +1,25 @@
 #include "GraspeKinematics.h"
 
 GraspeKinematics::GraspeKinematics(){
-    this->_l1=10;
+
+    // Graspe dimentions
+    _l1 = 10.0;
+    _l2 = 10.0;
+    _l3 = 10.0;
+    _l4 = 10.0;
+
+    // Joint limits
+    joint_limits[0]["max"] = 0.0;
+    joint_limits[0]["min"] = 0.0;
+
+    joint_limits[1]["max"] = 0.0;
+    joint_limits[1]["min"] = 0.0;
+
+    joint_limits[2]["max"] = 0.0;
+    joint_limits[2]["min"] = 0.0;
+
+    joint_limits[2]["max"] = 0.0;
+    joint_limits[2]["min"] = 0.0;
 };
 
 /**
@@ -9,7 +27,7 @@ GraspeKinematics::GraspeKinematics(){
  * 
  * @param q Joint states
  */
-SE3 GraspeKinematics::directKinematics(std::vector<float> q){
+SE3 GraspeKinematics::directKinematics(graspe::JointStates q){
     SE3 end_effector;
 
     // calculating x, y and z
@@ -98,44 +116,49 @@ std::vector<float> GraspeKinematics::inverseKinematics(SE3 end_effector){
 
 
 /**
- * @brief Inverse kinematics in cylinder coordinates.
+ * @brief Inverse Kinematics on cilindrical coordinates. Returns ``true`` if a solution is found.
  * 
- * @param command = {theta1, r, z, phi}
- * 
- * @paragraph theta1 is the rotation along the z axis, r is the radius, z is the heigh coordinate and phi is the angle of the end effector with the ground plane
+ * @param position The vector of {theta1, r, z, phi} position on cilindrical coordinates
+ * @param joint_states A pointer to the joint state variable where the position will be stored
  */
-std::vector<float> GraspeKinematics::inverseKinematicsCylindrical(std::vector<float> command){
-    std::vector<float> joint_states;
-
-    // theta1
-    joint_states[0] = command[0];
-
-    // Now on os more complex, I sugest to read the docs 
+bool GraspeKinematics::inverseKinematicsCylindrical(graspe::CylindricalCoord position, graspe::JointStates& joint_states){
     
-    // theta3
-    // solution of the 3 link plannar manipulation
-    float x_2 = command[1];
-    float z_2 = command[2] - this->_l1;
+    // theta1, rotation along the z axis
+    if ( (position[0] > joint_limits[0]["max"]) || (position[0] < joint_limits[0]["min"]) ) {return false;}
+    joint_states[0] = position[0];
+    
+    // radius distance
+    if (position[1] >= (_l2+_l3+_l4)) {return false;}
+    float x_2 = position[1];
+
+    // height distance
+    if (position[2] >= (_l2+_l3+_l4)) {return false;}
+    float z_2 = position[2] - this->_l1;
 
     // Angle with the ground plane
-    float phi = command[3];
+    float phi = position[3];
 
-    // pose of the 3 joint
+    // pose of the end of link 3
     float p3x = x_2 - this->_l4 * cos(phi);
     float p3y = z_2 - this->_l4 * sin(phi);
 
+    // theta3
     float cos3 = (p3x*p3x +p3y*p3y - _l2*_l2 - _l3*_l3) / (2*_l2*_l3);
-    float sin3 = - sqrt(1 - cos3*cos3); // negative, só elbow is point up
+    float sin3 = - sqrt(1 - cos3*cos3); // negative, so elbow is point up
 
     joint_states[2] = atan2(sin3, cos3);
+    if ( (joint_states[2] > joint_limits[2]["max"]) || (joint_states[2] < joint_limits[2]["min"]) ) {return false;}
     
     // theta2
     float sin2 = ((_l2 + _l3*cos3)*p3y - _l3*sin3*p3x) / (p3x*p3x +p3y*p3y);
     float cos2 = ((_l2 + _l3*cos3)*p3x + _l3*sin3*p3y) / (p3x*p3x +p3y*p3y);
+
     joint_states[1] = atan2(sin2, cos2);
+    if ( (joint_states[1] > joint_limits[1]["max"]) || (joint_states[1] < joint_limits[1]["min"]) ) {return false;}
 
     // theta4
     joint_states[3] = phi - joint_states[1] - joint_states[2];
+    if ( (joint_states[3] > joint_limits[3]["max"]) || (joint_states[3] < joint_limits[3]["min"]) ) {return false;}
 
-    return joint_states;
-};
+    return true;
+}

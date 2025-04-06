@@ -5,6 +5,20 @@
 #include<string.h>
 #include<vector>
 #include<math.h>
+#include <iostream>
+#include <cstdlib>  
+
+
+namespace graspe
+{
+
+    // Joint state variable for graspe (theta1, theta2, theta3, theta4)
+    typedef float JointStates[4];
+    typedef float CylindricalCoord[4]; 
+
+} // namespace graspe
+
+
 
 /**
  * @brief Type of variable to describe a rigid body in 3D space
@@ -26,19 +40,23 @@ struct SE3
 
 // position command theta1, r e z
 
+
 class GraspeKinematics
 {
 private:
-    float _l1 = 10.0;
-    float _l2 = 10.0;
-    float _l3 = 10.0;
-    float _l4 = 10.0;
+    float _l1;
+    float _l2;
+    float _l3;
+    float _l4;
+
+    std::vector<std::map<std::string, float>> joint_limits;
 
 public:
     GraspeKinematics();
-    SE3 directKinematics(std::vector<float> q);
+    SE3 directKinematics(graspe::JointStates q);
     std::vector<float> inverseKinematics(SE3 position);
-    std::vector<float> inverseKinematicsCylindrical(std::vector<float> command);
+    bool inverseKinematicsCylindrical(graspe::CylindricalCoord position, graspe::JointStates& joint_states);
 };
+
 
 #endif 
