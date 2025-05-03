@@ -1,6 +1,6 @@
 #include "GraspeKinematics.h"
 
-GraspeKinematics::GraspeKinematics(){
+GraspeKinematics::GraspeKinematics(float l1, float l2, float l3, float l4, std::vector<std::map<std::string, float>> joint_limits){
 
     // Graspe dimentions
     _l1 = 10.0;
@@ -9,17 +9,18 @@ GraspeKinematics::GraspeKinematics(){
     _l4 = 10.0;
 
     // Joint limits
-    joint_limits[0]["max"] = 0.0;
-    joint_limits[0]["min"] = 0.0;
+    this->joint_limits = joint_limits;
+    //joint_limits[0]["max"] = 0.0;
+    //joint_limits[0]["min"] = 0.0;
 
-    joint_limits[1]["max"] = 0.0;
-    joint_limits[1]["min"] = 0.0;
+    //joint_limits[1]["max"] = 0.0;
+    //joint_limits[1]["min"] = 0.0;
 
-    joint_limits[2]["max"] = 0.0;
-    joint_limits[2]["min"] = 0.0;
+    //joint_limits[2]["max"] = 0.0;
+    //joint_limits[2]["min"] = 0.0;
 
-    joint_limits[2]["max"] = 0.0;
-    joint_limits[2]["min"] = 0.0;
+    //joint_limits[3]["max"] = 0.0;
+    //joint_limits[3]["min"] = 0.0;
 };
 
 /**
@@ -123,9 +124,11 @@ std::vector<float> GraspeKinematics::inverseKinematics(SE3 end_effector){
  */
 bool GraspeKinematics::inverseKinematicsCylindrical(graspe::CylindricalCoord position, graspe::JointStates& joint_states){
     
+    graspe::JointStates new_joint_states;
+
     // theta1, rotation along the z axis
     if ( (position[0] > joint_limits[0]["max"]) || (position[0] < joint_limits[0]["min"]) ) {return false;}
-    joint_states[0] = position[0];
+    new_joint_states[0] = position[0];
     
     // radius distance
     if (position[1] >= (_l2+_l3+_l4)) {return false;}
@@ -146,19 +149,24 @@ bool GraspeKinematics::inverseKinematicsCylindrical(graspe::CylindricalCoord pos
     float cos3 = (p3x*p3x +p3y*p3y - _l2*_l2 - _l3*_l3) / (2*_l2*_l3);
     float sin3 = - sqrt(1 - cos3*cos3); // negative, so elbow is point up
 
-    joint_states[2] = atan2(sin3, cos3);
-    if ( (joint_states[2] > joint_limits[2]["max"]) || (joint_states[2] < joint_limits[2]["min"]) ) {return false;}
+    new_joint_states[2] = atan2(sin3, cos3);
+    if ( (new_joint_states[2] > joint_limits[2]["max"]) || (new_joint_states[2] < joint_limits[2]["min"]) ) {return false;}
     
     // theta2
     float sin2 = ((_l2 + _l3*cos3)*p3y - _l3*sin3*p3x) / (p3x*p3x +p3y*p3y);
     float cos2 = ((_l2 + _l3*cos3)*p3x + _l3*sin3*p3y) / (p3x*p3x +p3y*p3y);
 
-    joint_states[1] = atan2(sin2, cos2);
-    if ( (joint_states[1] > joint_limits[1]["max"]) || (joint_states[1] < joint_limits[1]["min"]) ) {return false;}
+    new_joint_states[1] = atan2(sin2, cos2);
+    if ( (new_joint_states[1] > joint_limits[1]["max"]) || (new_joint_states[1] < joint_limits[1]["min"]) ) {return false;}
 
     // theta4
-    joint_states[3] = phi - joint_states[1] - joint_states[2];
-    if ( (joint_states[3] > joint_limits[3]["max"]) || (joint_states[3] < joint_limits[3]["min"]) ) {return false;}
+    new_joint_states[3] = phi - new_joint_states[1] - new_joint_states[2];
+    if ( (new_joint_states[3] > joint_limits[3]["max"]) || (new_joint_states[3] < joint_limits[3]["min"]) ) {return false;}
+
+    joint_states[0] = new_joint_states[0];
+    joint_states[1] = new_joint_states[1];
+    joint_states[2] = new_joint_states[2];
+    joint_states[3] = new_joint_states[3];
 
     return true;
 }
