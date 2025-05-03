@@ -6,7 +6,7 @@
  * @param input_modifier Speed modifier for the joint
  * @param input_pin Which pin the joint servo is connected to
  */
-GraspeJoints::GraspeJoints(const float& input_initial, const std::map<std::string, float>& input_limits,const float& input_modifier, const int& input_pin){
+GraspeJoints::GraspeJoints(const int& input_pin, const std::map<std::string, float>& input_limits, const float& input_initial,const float& input_modifier){
     angle_initial = input_initial;
     angle_current = angle_initial;
     angle_limits = input_limits;
@@ -14,6 +14,7 @@ GraspeJoints::GraspeJoints(const float& input_initial, const std::map<std::strin
     pin = input_pin;
     servo.setPeriodHertz(50);
     servo.attach(pin, 700, 2350);
+    servo.write(int(angle_current));
 };
 
 
@@ -38,9 +39,10 @@ int GraspeJoints::get_pin(){
     return pin;
 }
 
-void GraspeJoints::set_angle(const float& input_current) {
+void GraspeJoints::set_angle(float input_current) {
+    //input_current *= 180/M_PI;
     angle_current = check_limits(input_current);
-    servo.write(angle_current);
+    servo.write(int(angle_current));
 }
 
 void GraspeJoints::set_speed_modifier(const float& input_modifier) {
@@ -62,5 +64,5 @@ float GraspeJoints::check_limits(float input_angle){
 
 void GraspeJoints::reset_joint(){
     angle_current = angle_initial;
-    servo.write(angle_current);
+    servo.write(int(angle_current));
 }

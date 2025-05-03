@@ -5,8 +5,8 @@
 #include<string.h>
 #include<vector>
 #include<math.h>
-#include <iostream>
-#include <cstdlib>  
+#include<iostream>
+#include<cstdlib>  
 
 
 namespace graspe
@@ -52,7 +52,7 @@ private:
     std::vector<std::map<std::string, float>> joint_limits;
 
 public:
-    GraspeKinematics();
+    GraspeKinematics(float l1, float l2, float l3, float l4, std::vector<std::map<std::string, float>> joint_limits);
     SE3 directKinematics(graspe::JointStates q);
     std::vector<float> inverseKinematics(SE3 position);
     bool inverseKinematicsCylindrical(graspe::CylindricalCoord position, graspe::JointStates& joint_states);
