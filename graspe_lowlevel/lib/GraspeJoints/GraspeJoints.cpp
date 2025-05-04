@@ -40,8 +40,9 @@ int GraspeJoints::get_pin(){
 }
 
 void GraspeJoints::set_angle(float input_current) {
-    //input_current *= 180/M_PI;
     angle_current = check_limits(input_current);
+    angle_current *= 180/M_PI;
+    angle_current+=90;
     servo.write(int(angle_current));
 }
 

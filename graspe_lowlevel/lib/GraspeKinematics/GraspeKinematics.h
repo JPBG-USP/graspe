@@ -1,5 +1,5 @@
 #ifndef _GRASPE_KINEMATICS_
-#define _GRASPE_KINEMATCIS_
+#define _GRASPE_KINEMATICS_
 
 #include<map>
 #include<string.h>

@@ -1,40 +1,13 @@
 #include <Bluepad32.h>
 #include <ESP32Servo.h>
-#include "GraspeJoints.h"
+#include "GraspeManipulator.h"
 
-int servo2_pin = 33;
-int servo3_pin = 25;
-int servo4_pin = 26;
-int servog_pin = 0;
-
-int servo2_ang_init = 90;
-int servo3_ang_init = 90;
-int servo4_ang_init = 90;
-int servog_ang_init = 0;
-
-int servo2_ang_min = 0;
-int servo3_ang_min = 0;
-int servo4_ang_min = 0;
-int servog_ang_min = 0;
-
-int servo2_ang_max = 180;
-int servo3_ang_max = 180;
-int servo4_ang_max = 180;
-int servog_ang_max = 180;
-
-int servo2_ang_atual = servo2_ang_init;
-int servo3_ang_atual = servo3_ang_init;
-int servo4_ang_atual = servo4_ang_init;
-int servog_ang_atual = servog_ang_init;
-
-Servo servo2;
-Servo servo3;
-Servo servo4;
-Servo servog;
-
-GraspeJoints junta1(90.0,{{"min",0.0},{"max",180.0}},1.0,32);
-
+GraspeManipulator graspe_manipulator;
 ControllerPtr myControllers[BP32_MAX_GAMEPADS];
+
+float degrees_to_rad(float input){
+  return input*M_PI/180;
+}
 
 // This callback gets called any time a new gamepad is connected.
 // Up to 4 gamepads can be connected at the same time.
@@ -98,27 +71,18 @@ void dumpGamepad(ControllerPtr ctl) {
 // ========= GAME CONTROLLER ACTIONS SECTION ========= //
 
 void processGamepad(ControllerPtr ctl) {
+  graspe::CylindricalCoord delta_pos = {0.0, 0.0, 0.0, 0.0};
+
   // R1 e L1 Funções especiais //
-  if (ctl->buttons() == 0x0032) {
+  if (ctl->buttons() == 0x0032) { //Reset manipulator
     Serial.println("Voltou ao dock");
-    //Voltar ao dock
-    //servob.write(servob_ang_init);
-    //servob_ang_atual = servob_ang_init;
-    servo2.write(servo2_ang_init);
-    servo2_ang_atual = servo2_ang_init;
-    servo3.write(servo3_ang_init);
-    servo3_ang_atual = servo3_ang_init;
-    servo4.write(servo4_ang_init);
-    servo4_ang_atual = servo4_ang_init;
-    servog.write(servo4_ang_init);
-    servog_ang_atual = servog_ang_init;
+    graspe_manipulator.reset_manipulator();
     delay(100);
   }
   //== R2 trigger = 0x0080 ==//
   if (ctl->buttons() == 0x0080) {
-    int d_angulo_garra = map(ctl->throttle(),0,1023,45,135);
-    junta1.set_angle(float(d_angulo_garra));
-    Serial.println(junta1.get_angle_current());
+    int d_angulo_garra = map(ctl->throttle(),0,1023,0,20);
+    
     Serial.println(d_angulo_garra);
     //Fechar a garra
   }
@@ -130,65 +94,60 @@ void processGamepad(ControllerPtr ctl) {
   }
 
   //Checar release pra zerar o valor de d_angulo_garra
-/*
-//== LEFT JOYSTICK X axis==//
+
+//== LEFT JOYSTICK X axis - - - Theta ==//
   if (abs(ctl->axisX())>abs(ctl->axisY())){
     if (ctl->axisX() >= 80 || ctl->axisX() <= -80) {
-      if(servob_ang_atual<=180 && servob_ang_atual>=0){
         int d_angulo_base = map(ctl->axisX(),-512,512,-10,10);
-        Serial.println(d_angulo_base);
-        servob_ang_atual += d_angulo_base;
-        if(servob_ang_atual>180){
-          servob_ang_atual = 180;
-        }else if(servob_ang_atual<0){
-          servob_ang_atual = 0;
-        }
-        Serial.println(servob_ang_atual);
-        servob.write(servob_ang_atual);
-      }
+        //Serial.printf("d_angulo %f",degrees_to_rad(float(d_angulo_base)));
+        delta_pos[0] = degrees_to_rad(float(d_angulo_base));
     }
   }
-
-*/
   
-  //== LEFT JOYSTICK Y axis==//
+  //== LEFT JOYSTICK Y axis - - - R ==//
   if (abs(ctl->axisX())<abs(ctl->axisY())){
     if (ctl->axisY() >= 80 || ctl->axisY() <= -80) {
-    if(servo2_ang_atual<=180 && servo2_ang_atual>=0){
-        int d_angulo_2 = map(ctl->axisY(),-512,512,-10,10);
-        Serial.println(d_angulo_2);
-        servo2_ang_atual += d_angulo_2;
-        if(servo2_ang_atual>180){
-          servo2_ang_atual = 180;
-        }else if(servo2_ang_atual<0){
-          servo2_ang_atual = 0;
-        }
-        Serial.println(servo2_ang_atual);
-        //servob.write(servo2_ang_atual);
-      }
+      int d_pos_r = map(ctl->axisY(),-512,512,-10,10);
+      delta_pos[1] = d_pos_r*0.1;
+    }
+  }
+  
+  //== RIGHT JOYSTICK Y AXIS - - - Z==//
+  if(abs(ctl->axisRX())<abs(ctl->axisRY())){
+    if (ctl->axisRY() >= 150 || ctl->axisRY() <= -150) {
+      int d_pos_z = map(ctl->axisRY(),-512,512,-10,10);
+      delta_pos[2] = d_pos_z*0.1;
+    } 
+  }
+  
+  //== RIGHT JOYSTICK Y AXIS ==//
+  if (abs(ctl->axisRX())>abs(ctl->axisRY())){
+    if (ctl->axisRX() >= 80 || ctl->axisRX() <= -80) {
+      int d_angulo_approach = map(ctl->axisX(),-512,512,-10,10);
+      //Serial.printf("d_angulo %f",degrees_to_rad(float(d_angulo_approach)));
+      delta_pos[3] = degrees_to_rad(float(d_angulo_approach));
     }
   }
 
-  //== RIGHT JOYSTICK Y AXIS ==//
-  if (ctl->axisRY() >= 150 || ctl->axisRY() <= -150) {
-    
-  } 
-  if (abs(ctl->axisRX())>abs(ctl->axisRY())){
-    if (ctl->axisRX() >= 80 || ctl->axisRX() <= -80) {
-    if(servo3_ang_atual<=180 && servo3_ang_atual>=0){
-        int d_angulo_3 = map(ctl->axisRX(),-512,512,-10,10);
-        Serial.println(d_angulo_3);
-        servo3_ang_atual += d_angulo_3;
-        if(servo3_ang_atual>180){
-          servo3_ang_atual = 180;
-        }else if(servo3_ang_atual<0){
-          servo3_ang_atual = 0;
-        }
-        Serial.println(servo3_ang_atual);
-        //servob.write(servo2_ang_atual);
-      }
-    }
+  if(graspe_manipulator.set_pose(delta_pos)){
+    Serial.println("Deu bom");
+  }else{
+    Serial.println("Fez o L");
   }
+  //Serial.println(graspe_manipulator.joint1.get_angle_current());
+  Serial.printf("%f/%f/%f/%f\n",
+    graspe_manipulator.joint1.get_angle_current(),
+    graspe_manipulator.joint2.get_angle_current(),
+    graspe_manipulator.joint3.get_angle_current(),
+    graspe_manipulator.joint4.get_angle_current()
+  );
+  Serial.printf("%f/%f/%f/%f\n",
+    graspe_manipulator.endeffector_pose[0],
+    graspe_manipulator.endeffector_pose[1],
+    graspe_manipulator.endeffector_pose[2],
+    graspe_manipulator.endeffector_pose[3]
+  );
+
   //dumpGamepad(ctl);
 }
 
@@ -208,21 +167,6 @@ void processControllers() {
 // Arduino setup function. Runs in CPU 1
 void setup() {
   Serial.begin(115200);
-
-  /*
-    Configurando Servos Motores
-      - 50 Hz encontrei q tds trabalham nessa faixa, mas é sempre bom verificar data sheet
-      - SG90, por testes meus (Zezé) os melhores foram min=700 e max=2350
-      - MG996R, por testes os melhores são min=200 e max=3200
-  */
-  servo2.setPeriodHertz(50);
-  servo2.attach(servo2_pin, 700, 2350);
-
-  servo3.setPeriodHertz(50);
-  servo3.attach(servo3_pin, 700, 2350);
-
-  servo4.setPeriodHertz(50);
-  servo4.attach(servo4_pin, 700, 2350);
 
   //Coisas que tem a ver com o controle remoto
   Serial.printf("Firmware: %s\n", BP32.firmwareVersion());
@@ -251,10 +195,6 @@ void setup() {
 
 // Arduino loop function. Runs in CPU 1.
 void loop() {
-
-
-  
-
   // This call fetches all the controllers' data.
   // Call this function in your main loop.
   bool dataUpdated = BP32.update();
