@@ -3,10 +3,10 @@
 GraspeKinematics::GraspeKinematics(float l1, float l2, float l3, float l4, std::vector<std::map<std::string, float>> joint_limits){
 
     // Graspe dimentions
-    _l1 = 10.0;
-    _l2 = 10.0;
-    _l3 = 10.0;
-    _l4 = 10.0;
+    _l1 = l1;
+    _l2 = l2;
+    _l3 = l3;
+    _l4 = l4;
 
     // Joint limits
     this->joint_limits = joint_limits;
