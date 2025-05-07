@@ -25,7 +25,7 @@ class GraspeManipulator
 {
 private:
     // Kinematics
-    GraspeManipulator Kinematics(
+    GraspeKinematics Kinematics(
         graspe::l1, graspe::l2, graspe::l3, graspe::l4, graspe::JointLimits
     );
 
