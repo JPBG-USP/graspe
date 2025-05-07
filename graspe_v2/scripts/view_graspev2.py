@@ -133,7 +133,8 @@ class GraspeView:
                         possible, qnew = self.kinematics.inverse_kinematics_cylindrical(pos)
                         if possible:
                             q = qnew
-                            print(q)
+                            print(f"Joint position: {q}")
+                            print(f"Endeffector pose: {pos}")
                     self.robot.q = q
                     env.step()
             

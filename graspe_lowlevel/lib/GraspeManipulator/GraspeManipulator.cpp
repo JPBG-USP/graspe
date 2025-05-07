@@ -65,11 +65,18 @@ bool GraspeManipulator::set_pose(graspe::CylindricalCoord delta_pos){
 }
 
 void GraspeManipulator::reset_manipulator(){
+    /* Joint position for standard position
+    
+        Joint position: [0.0, 0.5, -1.0, 0.5]
+        Endeffector pose: [0.0, 23, 16.72, 0.0]
+    */
+
+    this->joint_state = {0.0, 0.5, -1.0, 0.5};
     endeffector_pose[0] = 0.0;
-    endeffector_pose[1] = 25.2;
+    endeffector_pose[1] = 23.0;
     endeffector_pose[2] = 16.72;
     endeffector_pose[3] = 0.0;
-    Kinematics.inverseKinematicsCylindrical(endeffector_pose,joint_state);
+
     /// Set angle to the joints
     joint1.set_angle(joint_state[0]);
     joint2.set_angle(joint_state[1]);
