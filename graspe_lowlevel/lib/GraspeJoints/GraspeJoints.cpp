@@ -1,4 +1,5 @@
 #include "GraspeJoints.h"
+
 /**
  * @brief GraspeJoints constructor with initial values
  * @param input_initial Initial angle for the Joint

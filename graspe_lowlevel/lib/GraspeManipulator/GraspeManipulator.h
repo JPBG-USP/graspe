@@ -22,8 +22,6 @@ private:
     // Kinematics
     GraspeKinematics Kinematics;
 
-    
-
     // graspe state
     graspe::JointStates joint_state;
 

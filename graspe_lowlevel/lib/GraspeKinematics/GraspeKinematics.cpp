@@ -127,15 +127,13 @@ bool GraspeKinematics::inverseKinematicsCylindrical(graspe::CylindricalCoord pos
     graspe::JointStates new_joint_states;
 
     // theta1, rotation along the z axis
-    if ( (position[0] > joint_limits[0]["max"]) || (position[0] < joint_limits[0]["min"]) ) {return false;}
+    if ( (position[0] > joint_limits[0]["max"]) || (position[0] < joint_limits[0]["min"]) ) {return false;} // Joint1 limits
     new_joint_states[0] = position[0];
     
     // radius distance
-    if (position[1] >= (_l2+_l3+_l4)) {return false;}
     float x_2 = position[1];
 
     // height distance
-    if (position[2] >= (_l2+_l3+_l4)) {return false;}
     float z_2 = position[2] - this->_l1;
 
     // Angle with the ground plane
@@ -147,21 +145,23 @@ bool GraspeKinematics::inverseKinematicsCylindrical(graspe::CylindricalCoord pos
 
     // theta3
     float cos3 = (p3x*p3x +p3y*p3y - _l2*_l2 - _l3*_l3) / (2*_l2*_l3);
+
+    if ((1- cos3*cos3) < 0){return false;}
     float sin3 = - sqrt(1 - cos3*cos3); // negative, so elbow is point up
 
     new_joint_states[2] = atan2(sin3, cos3);
-    if ( (new_joint_states[2] > joint_limits[2]["max"]) || (new_joint_states[2] < joint_limits[2]["min"]) ) {return false;}
+    if ( (new_joint_states[2] > joint_limits[2]["max"]) || (new_joint_states[2] < joint_limits[2]["min"]) ) {return false;} // joint3 limits
     
     // theta2
     float sin2 = ((_l2 + _l3*cos3)*p3y - _l3*sin3*p3x) / (p3x*p3x +p3y*p3y);
     float cos2 = ((_l2 + _l3*cos3)*p3x + _l3*sin3*p3y) / (p3x*p3x +p3y*p3y);
 
     new_joint_states[1] = atan2(sin2, cos2);
-    if ( (new_joint_states[1] > joint_limits[1]["max"]) || (new_joint_states[1] < joint_limits[1]["min"]) ) {return false;}
+    if ( (new_joint_states[1] > joint_limits[1]["max"]) || (new_joint_states[1] < joint_limits[1]["min"]) ) {return false;} // joint2 limits
 
     // theta4
     new_joint_states[3] = phi - new_joint_states[1] - new_joint_states[2];
-    if ( (new_joint_states[3] > joint_limits[3]["max"]) || (new_joint_states[3] < joint_limits[3]["min"]) ) {return false;}
+    if ( (new_joint_states[3] > joint_limits[3]["max"]) || (new_joint_states[3] < joint_limits[3]["min"]) ) {return false;} // joint4 limits
 
     joint_states[0] = new_joint_states[0];
     joint_states[1] = new_joint_states[1];

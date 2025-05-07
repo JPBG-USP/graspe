@@ -9,3 +9,6 @@ ros_ws/.vscode/
 
 # Ignore peter_corke __pycache__
 peter_corke/__pycache__/
+
+# ignore graspe v2 pycache
+graspe_v2/scripts/__pycache__
