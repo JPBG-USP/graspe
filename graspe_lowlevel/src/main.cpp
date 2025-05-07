@@ -191,6 +191,10 @@ void setup() {
   BP32.enableVirtualDevice(false);
 
   delay(500);
+
+  // reseting manipulator to standart position
+  graspe_manipulator.reset_manipulator();
+  delay(500);
 }
 
 // Arduino loop function. Runs in CPU 1.
