@@ -5,9 +5,9 @@ namespace graspe
     // Joint Limits
     std::vector<std::map<std::string, float>> JointLimits = {
         { {"max", M_PI/2}, {"min", -M_PI/2} },
-        { {"max", 0.55}, {"min", -0.0523} },
-        { {"max", 0.226}, {"min", -1.535} },
-        { {"max", 0.9424}, {"min", -0.0872} }
+        { {"max", M_PI/2}, {"min", -0.57} },
+        { {"max", 0}, {"min", -2.3} },
+        { {"max", M_PI/2}, {"min", -M_PI/2} }
     };
 
     // Robot dimentions cm
@@ -21,19 +21,10 @@ GraspeManipulator::GraspeManipulator()
     : Kinematics(graspe::l1, graspe::l2, graspe::l3, graspe::l4, graspe::JointLimits),
       joint1(32, graspe::JointLimits[0]),
       joint2(33, graspe::JointLimits[1]),
-      joint3(25, graspe::JointLimits[2]),
+      joint3(25, graspe::JointLimits[2],180),
       joint4(26, graspe::JointLimits[3])
 {
-    endeffector_pose[0] = 0.0;
-    endeffector_pose[1] = 23.66;
-    endeffector_pose[2] = 13.66;
-    endeffector_pose[3] = 0.0;
-    Kinematics.inverseKinematicsCylindrical(endeffector_pose,joint_state);
-    /// Set angle to the joints
-    joint1.set_angle(joint_state[0]);
-    joint2.set_angle(joint_state[1]);
-    joint3.set_angle(joint_state[2]);
-    joint4.set_angle(joint_state[3]);
+    this->reset_manipulator();
 }
 
 bool GraspeManipulator::set_pose(graspe::CylindricalCoord delta_pos){
@@ -65,11 +56,17 @@ bool GraspeManipulator::set_pose(graspe::CylindricalCoord delta_pos){
 }
 
 void GraspeManipulator::reset_manipulator(){
+    
+    joint_state[0] = 0.0;
+    joint_state[1] = 0.5;
+    joint_state[2] = -1.0;
+    joint_state[3] = 0.5;
+
     endeffector_pose[0] = 0.0;
-    endeffector_pose[1] = 25.2;
+    endeffector_pose[1] = 23.0;
     endeffector_pose[2] = 16.72;
     endeffector_pose[3] = 0.0;
-    Kinematics.inverseKinematicsCylindrical(endeffector_pose,joint_state);
+
     /// Set angle to the joints
     joint1.set_angle(joint_state[0]);
     joint2.set_angle(joint_state[1]);

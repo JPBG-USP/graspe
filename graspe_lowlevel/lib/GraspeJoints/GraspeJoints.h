@@ -17,13 +17,14 @@ private:
     float angle_current;
     float angle_current_degrees;
     std::map<std::string,float> angle_limits;
-    float speed_modifier;
+    int offset;
+    int speed_modifier;
     int pin;
     Servo servo;
 
 public:
     //Constructors and get_value methods
-    GraspeJoints(const int& input_pin = -1, const std::map<std::string, float>& input_limits = {{"max",0.0},{"min",0.0}},const float& input_initial = 0.0,const float& input_modifier = 1.0);
+    GraspeJoints(const int& input_pin = -1, const std::map<std::string, float>& input_limits = {{"max",0.0},{"min",0.0}},int offset = 90,const float& input_modifier = 1.0,const float& input_initial = 0.0);
     float get_angle_initial();
     float get_angle_current();
     std::map<std::string,float> get_angle_limits();
