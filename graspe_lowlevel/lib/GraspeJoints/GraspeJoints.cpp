@@ -3,6 +3,7 @@
  * @brief GraspeJoints constructor with initial values
  * @param input_initial Initial angle for the Joint
  * @param input_limits Limits for the Joint, must have the form {{"max",float value},{"min",float value}}
+ * @param input_offset Offset for the joints servo, must be an int
  * @param input_modifier Speed modifier for the joint
  * @param input_pin Which pin the joint servo is connected to
  */
@@ -39,11 +40,13 @@ float GraspeJoints::get_speed_modifier(){
 int GraspeJoints::get_pin(){
     return pin;
 }
-
+/**
+ * @brief Input must be in radians
+ * 
+ */
 void GraspeJoints::set_angle(float input_current) {
     angle_current = check_limits(input_current);
     servo.write(int((angle_current*180/M_PI) + offset));
-    Serial.println(int((angle_current*180/M_PI) + offset));
 }
 
 void GraspeJoints::set_speed_modifier(const float& input_modifier) {
@@ -62,7 +65,7 @@ float GraspeJoints::check_limits(float input_angle){
     }
     return input_angle;
 }
-
+// deprecated function, we use the GraspeManipulator::set_pose method instead
 void GraspeJoints::reset_joint(){
     angle_current = angle_initial;
     servo.write(int(angle_current));

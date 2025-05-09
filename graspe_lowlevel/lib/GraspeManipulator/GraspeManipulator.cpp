@@ -2,7 +2,7 @@
 
 namespace graspe
 {
-    // Joint Limits
+    // Joint Limits specific for GraspeV2
     std::vector<std::map<std::string, float>> JointLimits = {
         { {"max", M_PI/2}, {"min", -M_PI/2} },
         { {"max", M_PI/2}, {"min", -0.57} },
@@ -10,7 +10,7 @@ namespace graspe
         { {"max", M_PI/2}, {"min", -M_PI/2} }
     };
 
-    // Robot dimentions cm
+    // Robot dimentions in cm
     float l1 = 16.72;
     float l2 = 10.26;
     float l3 = 10.26;
