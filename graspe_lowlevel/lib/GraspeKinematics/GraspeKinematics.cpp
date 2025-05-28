@@ -10,18 +10,8 @@ GraspeKinematics::GraspeKinematics(float l1, float l2, float l3, float l4, std::
 
     // Joint limits
     this->joint_limits = joint_limits;
-    //joint_limits[0]["max"] = 0.0;
-    //joint_limits[0]["min"] = 0.0;
-
-    //joint_limits[1]["max"] = 0.0;
-    //joint_limits[1]["min"] = 0.0;
-
-    //joint_limits[2]["max"] = 0.0;
-    //joint_limits[2]["min"] = 0.0;
-
-    //joint_limits[3]["max"] = 0.0;
-    //joint_limits[3]["min"] = 0.0;
 };
+
 
 /**
  * @brief This function retursn pararaprerre
@@ -68,6 +58,7 @@ SE3 GraspeKinematics::directKinematics(graspe::JointStates q){
 
     return end_effector;
 }
+
 
 /**
  * @brief Inverse Kinematics on cartesian system
@@ -117,25 +108,52 @@ std::vector<float> GraspeKinematics::inverseKinematics(SE3 end_effector){
 
 
 /**
+ * @brief Direct Kinematics on cylindrical coordinates. Returns ``true`` if a solution is found.
+ * 
+ * @param joint_states
+ * @param position
+ */
+bool GraspeKinematics::directKinematicsCylindrical(graspe::JointStates joint_states, graspe::CylindricalCoord& position){
+    graspe::CylindricalCoord new_position;
+
+    // theta
+    new_position[0] = joint_states[0];
+
+    // r 
+    new_position[1] = _l1 * sin(joint_states[1]) + _l2 * sin(joint_states[1] + joint_states[2]) + _l3 * sin(joint_states[1] + joint_states[2] + joint_states[3]);;
+    
+    // z
+    new_position[2] = _l1 * cos(joint_states[1]) + _l2 * cos(joint_states[1] + joint_states[2]) + _l3 * cos(joint_states[1] + joint_states[2] + joint_states[3]);
+    
+    // phi
+    new_position[3] = joint_states[3] + joint_states[2] + joint_states[1];
+
+    position[0] = new_position[0];
+    position[1] = new_position[1];
+    position[2] = new_position[2];
+    position[3] = new_position[3];
+    return true;
+};
+
+
+/**
  * @brief Inverse Kinematics on cilindrical coordinates. Returns ``true`` if a solution is found.
  * 
  * @param position The vector of {theta1, r, z, phi} position on cilindrical coordinates
- * @param joint_states A pointer to the joint state variable where the position will be stored
+ * @param joint_states A reference to the joint state variable where the position will be stored
  */
 bool GraspeKinematics::inverseKinematicsCylindrical(graspe::CylindricalCoord position, graspe::JointStates& joint_states){
     
     graspe::JointStates new_joint_states;
 
     // theta1, rotation along the z axis
-    if ( (position[0] > joint_limits[0]["max"]) || (position[0] < joint_limits[0]["min"]) ) {return false;}
+    if ( (position[0] > joint_limits[0]["max"]) || (position[0] < joint_limits[0]["min"]) ) {return false;} // Joint1 limits
     new_joint_states[0] = position[0];
     
     // radius distance
-    if (position[1] >= (_l2+_l3+_l4)) {return false;}
     float x_2 = position[1];
 
     // height distance
-    if (position[2] >= (_l2+_l3+_l4)) {return false;}
     float z_2 = position[2] - this->_l1;
 
     // Angle with the ground plane
@@ -147,21 +165,23 @@ bool GraspeKinematics::inverseKinematicsCylindrical(graspe::CylindricalCoord pos
 
     // theta3
     float cos3 = (p3x*p3x +p3y*p3y - _l2*_l2 - _l3*_l3) / (2*_l2*_l3);
+
+    if ((1- cos3*cos3) < 0){return false;}
     float sin3 = - sqrt(1 - cos3*cos3); // negative, so elbow is point up
 
     new_joint_states[2] = atan2(sin3, cos3);
-    if ( (new_joint_states[2] > joint_limits[2]["max"]) || (new_joint_states[2] < joint_limits[2]["min"]) ) {return false;}
+    if ( (new_joint_states[2] > joint_limits[2]["max"]) || (new_joint_states[2] < joint_limits[2]["min"]) ) {return false;} // joint3 limits
     
     // theta2
     float sin2 = ((_l2 + _l3*cos3)*p3y - _l3*sin3*p3x) / (p3x*p3x +p3y*p3y);
     float cos2 = ((_l2 + _l3*cos3)*p3x + _l3*sin3*p3y) / (p3x*p3x +p3y*p3y);
 
     new_joint_states[1] = atan2(sin2, cos2);
-    if ( (new_joint_states[1] > joint_limits[1]["max"]) || (new_joint_states[1] < joint_limits[1]["min"]) ) {return false;}
+    if ( (new_joint_states[1] > joint_limits[1]["max"]) || (new_joint_states[1] < joint_limits[1]["min"]) ) {return false;} // joint2 limits
 
     // theta4
     new_joint_states[3] = phi - new_joint_states[1] - new_joint_states[2];
-    if ( (new_joint_states[3] > joint_limits[3]["max"]) || (new_joint_states[3] < joint_limits[3]["min"]) ) {return false;}
+    if ( (new_joint_states[3] > joint_limits[3]["max"]) || (new_joint_states[3] < joint_limits[3]["min"]) ) {return false;} // joint4 limits
 
     joint_states[0] = new_joint_states[0];
     joint_states[1] = new_joint_states[1];

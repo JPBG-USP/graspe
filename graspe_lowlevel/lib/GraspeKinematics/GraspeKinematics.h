@@ -55,6 +55,7 @@ public:
     GraspeKinematics(float l1, float l2, float l3, float l4, std::vector<std::map<std::string, float>> joint_limits);
     SE3 directKinematics(graspe::JointStates q);
     std::vector<float> inverseKinematics(SE3 position);
+    bool directKinematicsCylindrical(graspe::JointStates joint_states, graspe::CylindricalCoord& position);
     bool inverseKinematicsCylindrical(graspe::CylindricalCoord position, graspe::JointStates& joint_states);
 };
 
