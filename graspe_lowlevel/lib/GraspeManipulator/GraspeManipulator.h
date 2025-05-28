@@ -37,6 +37,7 @@ public:
     graspe::CylindricalCoord endeffector_pose;
     
     GraspeManipulator();
+    bool set_joint_pose(graspe::JointStates);
     bool set_pose(graspe::CylindricalCoord delta_pos);
     void reset_manipulator();
 };

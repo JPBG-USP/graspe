@@ -128,6 +128,11 @@ bool GraspeKinematics::directKinematicsCylindrical(graspe::JointStates joint_sta
     // phi
     new_position[3] = joint_states[3] + joint_states[2] + joint_states[1];
 
+    if ( (joint_states[0] > joint_limits[0]["max"]) || (joint_states[0] < joint_limits[0]["min"]) ) {return false;} // Joint1 limits
+    if ( (joint_states[1] > joint_limits[1]["max"]) || (joint_states[1] < joint_limits[1]["min"]) ) {return false;} // Joint2 limits
+    if ( (joint_states[2] > joint_limits[2]["max"]) || (joint_states[2] < joint_limits[2]["min"]) ) {return false;} // Joint3 limits
+    if ( (joint_states[3] > joint_limits[3]["max"]) || (joint_states[3] < joint_limits[3]["min"]) ) {return false;} // Joint14 limits
+
     position[0] = new_position[0];
     position[1] = new_position[1];
     position[2] = new_position[2];
