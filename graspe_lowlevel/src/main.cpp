@@ -31,6 +31,7 @@ void cylindrical_control(ControllerPtr ctl){
   // = Reset Manipulator - - - B = //
   if (ctl->buttons() == 0x0032) {
     graspe_manipulator.reset_manipulator();
+    garra.write(170);
     delay(100);
   }
   // = Toggle inspection mode - - -  = //
@@ -39,7 +40,11 @@ void cylindrical_control(ControllerPtr ctl){
   }
   // = Change control mode = //
   if(ctl -> buttons() == 0x0038){
-      joint_flag!=joint_flag;
+    if((millis()-last_press)>3000){
+      joint_flag = !joint_flag;
+      //Serial.println("Foi da cilindrica pra joint");
+      last_press = millis();
+    }
   }
 
   // == Joystick and trigger inspections == //
@@ -107,6 +112,7 @@ void cylindrical_control(ControllerPtr ctl){
 
   if(!graspe_manipulator.set_pose(delta_pos)){
     ctl->playDualRumble(0,250,255,255);
+    Serial.println("Falhou no set_pose");
   }
   //Inspection flag changes the Serial output
   if(inspection_flag){
@@ -130,14 +136,16 @@ void cylindrical_control(ControllerPtr ctl){
   }else{
     //Prints joint states for the Peter Corke visualization
 
-    Serial.printf("%f/%f/%f/%f\n",
+   
+   Serial.printf("cylindrical %f/%f/%f/%f\n",
       graspe_manipulator.joint1.get_angle_current(),
       graspe_manipulator.joint2.get_angle_current(),
       graspe_manipulator.joint3.get_angle_current(),
       graspe_manipulator.joint4.get_angle_current()
     );
+  
   }
-  Serial.println("================================================");
+  //Serial.println("================================================");
 }
 
 void joint_control(ControllerPtr ctl){
@@ -151,6 +159,7 @@ void joint_control(ControllerPtr ctl){
   // = Reset Manipulator = //
   if (ctl->buttons() == 0x0032) {
     graspe_manipulator.reset_manipulator();
+    garra.write(170);
     delay(100);
   }
   // = Toggle inspection mode = //
@@ -159,7 +168,11 @@ void joint_control(ControllerPtr ctl){
   }
   // = Change control mode = //
   if(ctl -> buttons() == 0x0038){
-      joint_flag!=joint_flag;  
+    if((millis()-last_press)>3000){
+      joint_flag = !joint_flag;
+      //Serial.println("Foi da joint pra cilindrica");
+      last_press = millis();
+    }
   }
 
   // == Joystick and trigger inspections == //
@@ -232,6 +245,7 @@ void joint_control(ControllerPtr ctl){
 
   if(!graspe_manipulator.set_joint_pose(delta_joint)){
     ctl->playDualRumble(0,250,255,255);
+    Serial.println("Falhou no set_joint_pose");
   }
 
   //Inspection flag changes the Serial output
@@ -258,14 +272,16 @@ void joint_control(ControllerPtr ctl){
   }else{
     //Prints joint states for the Peter Corke visualization
 
-    Serial.printf("%f/%f/%f/%f\n",
+   
+    Serial.printf("joint %f/%f/%f/%f\n",
       graspe_manipulator.joint1.get_angle_current(),
       graspe_manipulator.joint2.get_angle_current(),
       graspe_manipulator.joint3.get_angle_current(),
       graspe_manipulator.joint4.get_angle_current()
     );
+   
   }
-  Serial.println("================================================");
+  //Serial.println("================================================");
 }
 
 // ------ Beggining of code from Bluepad32.h examples ------ //
@@ -333,15 +349,17 @@ void dumpGamepad(ControllerPtr ctl) {
 
 void processGamepad(ControllerPtr ctl) {
   // Flag for joint control mode (AKA debug mode)
-  if(!joint_flag){
+  if(joint_flag==false){
     cylindrical_control(ctl);
-    digitalWrite(2,LOW);
+    //Serial.println("Modo cilindrico");
+    //digitalWrite(2,LOW);
   }
-  if(joint_flag){
+  if(joint_flag==true){
     joint_control(ctl);
-    digitalWrite(2,HIGH);
+    //Serial.println("Modo JJ");
+    //digitalWrite(2,HIGH);
   }
-  dumpGamepad(ctl);
+  //dumpGamepad(ctl);
 }
 
 
@@ -389,6 +407,7 @@ void setup() {
   garra.write(170);
 
   pinMode(2,OUTPUT);
+  digitalWrite(2,LOW);
   delay(500);
 }
 
