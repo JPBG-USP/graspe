@@ -238,7 +238,7 @@ void joint_control(ControllerPtr ctl){
   if (abs(ctl->axisRX())>abs(ctl->axisRY())){
     if (ctl->axisRX() >= 80 || ctl->axisRX() <= -80) {
       d_angle_4 = map(ctl->axisRX(),-512,512,-5,+5);
-      delta_joint[3] = degrees_to_rad((float)d_angle_3);
+      delta_joint[3] = degrees_to_rad((float)d_angle_4);
       //graspe_manipulator.joint4.set_angle(graspe_manipulator.joint4.get_angle_current()+degrees_to_rad((float)d_angle_4));
     }
   }
