@@ -11,10 +11,10 @@ namespace graspe
     };
 
     // Robot dimentions in cm
-    float l1 = 16.72;
-    float l2 = 10.26;
-    float l3 = 10.26;
-    float l4 = 5.0;
+    float l1 = 14.72;
+    float l2 = 9.3;
+    float l3 = 9.3;
+    float l4 = 10.5;
 } 
 
 GraspeManipulator::GraspeManipulator()
@@ -89,9 +89,9 @@ void GraspeManipulator::reset_manipulator(){
     
     /// Standart Joint State
     joint_state[0] = 0.0;
-    joint_state[1] = 0.5;
-    joint_state[2] = -1.0;
-    joint_state[3] = 0.5;
+    joint_state[1] = 0.9808;
+    joint_state[2] = -1.6444;
+    joint_state[3] = 0.6635;
 
     /// Standart End effector pose
     endeffector_pose[0] = 0.0;

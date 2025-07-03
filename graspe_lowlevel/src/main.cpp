@@ -78,7 +78,7 @@ void cylindrical_control(ControllerPtr ctl){
   int d_base_angle = 0;
   if (abs(ctl->axisX())>abs(ctl->axisY())){
     if (ctl->axisX() >= 80 || ctl->axisX() <= -80) {
-        int d_base_angle = map(ctl->axisX(),-512,512,5,-5);
+        int d_base_angle = map(ctl->axisX(),-512,512,3,-3);
         delta_pos[0] = degrees_to_rad(float(d_base_angle));
     }
   }
